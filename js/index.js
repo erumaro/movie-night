@@ -31,7 +31,7 @@ const app = document.getElementById("app");
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-		<MovieDetails />
+		<App />
 	</Provider>,
 app
 

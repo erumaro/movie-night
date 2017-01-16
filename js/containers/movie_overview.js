@@ -17,6 +17,7 @@ import { MovieDetails } from "./movie_details.js"
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';
 
+let category = this.props.params.menuCategory
 
 class MovieOverview extends Component {
 	
@@ -24,7 +25,10 @@ class MovieOverview extends Component {
 		// this.props.fetchPopularMovies();
 		// this.props.fetchUpcomingMovies();
 		// this.props.fetchNowPlayingMovies();
-		this.props.fetchTopRatedMovies();
+		// this.props.fetchTopRatedMovies();
+		
+		// Hämta "Category" från Router test
+		this.props.category();
 	}
 
 	renderMovies(movieList){
@@ -33,7 +37,7 @@ class MovieOverview extends Component {
 			
 			<article key={Math.random()} className="movieThumb">
 			
-				{movieList.backdrop_path === null ? <img src="../img/no_image.png"></img> : <img src={"https://image.tmdb.org/t/p/w500_and_h281_bestv2/" + movieList.backdrop_path}></img>}
+				<Link to={`/MovieDetails/${movieList.id}`}>{movieList.backdrop_path === null ? <img src="../img/no_image.png"></img> : <img src={"https://image.tmdb.org/t/p/w500_and_h281_bestv2/" + movieList.backdrop_path}></img>}</Link>
 
 				<section className="info">
 					
