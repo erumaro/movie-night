@@ -70,6 +70,21 @@ export function fetchTopRatedMovies(){
 	};
 }
 
+// Hämtar detaljer för film
+export function fetchMovieDetails(movieId){
+	const request = axios({
+		method: "GET",
+  	headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+  	url: "/movie/" + movieId + "?api_key=" + API_KEY + "&language=se&page=1",
+  	baseURL: "https://api.themoviedb.org/3"
+	})
+
+	return {
+		type: "FETCH_MOVIE_DETAILS",
+		payload: request
+	};
+}
+
 // --- TV ------------------------------------------------------------
 
 // Hämtar alla populära tv-serier
@@ -129,6 +144,21 @@ export function fetchTopRatedTV(){
 
 	return {
 		type: "FETCH_TOPRATED_TV",
+		payload: request
+	};
+}
+
+// Hämtar detaljer för tv serier
+export function fetchTvDetails(){
+	const request = axios({
+  	method: "GET",
+  	headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+  	url: "/tv/42?api_key=" + API_KEY + "&language=se&page=1",
+  	baseURL: "https://api.themoviedb.org/3"
+	})
+
+	return {
+		type: "FETCH_TV_DETAILS",
 		payload: request
 	};
 }

@@ -17,7 +17,7 @@ import { fetchTopRatedTV } from "../actions/index.js";
 import {Router, Route, Link, hashHistory } from 'react-router';
 
 // Other
-import moment from "moment"
+//import moment from "moment"
 
 class TvOverview extends Component {
 	
