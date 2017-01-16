@@ -11,7 +11,7 @@ export default class Header extends Component {
             <li>Film</li>
               <ul>
                 <li className="menu-item">
-                  <Link to="...">
+                  <Link to="/movieOverview/">
                     Popular
                   </Link>
                 </li>

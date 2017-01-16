@@ -22,31 +22,36 @@ class MovieDetails extends Component {
 		// this.props.fetchUpcomingMovies();
 		// this.props.fetchNowPlayingMovies();
 		//this.props.fetchTopRatedMovies();
-		this.props.fetchMovieDetails(this.props.params.movieId);
+		this.props.fetchMovieDetails(this.props.params.id);
 
 	}
 
 	renderMovieDetails(){
 	
+			if(this.props.movieDetails[0]){
 			return(
 			
-			<div>Movie Details</div>
+			<div>{this.props.movieDetails[0].title}</div>
 	
 			)
+		}
+		else {
+			<div>Loading movies...</div>
+		}
 	}
 
 	render(){
 
 		 if(this.props.movieDetails[0]){
 			console.log(this.props.movieDetails[0].title)
-		} 
+			} 
 	
 		return (
 			<div className="fullPage">
 				<h1>Header Title</h1>
 				
 				<div className="movieContainer">
-					{this.renderMovieDetails.bind(this)}
+					{this.renderMovieDetails()}
 				</div>
 	
 			</div>

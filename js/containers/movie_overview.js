@@ -42,7 +42,7 @@ class MovieOverview extends Component {
 				<section className="info">
 					
 					<section className="topInfo">
-						<h2>{movieList.title}</h2>
+						<Link to={`/movieDetails/${movieList.id}`}><h2>{movieList.title}</h2></Link>
 						<h3>{movieList.release_date}</h3>
 					</section>
 					
@@ -90,4 +90,4 @@ export default connect(mapStateToProps, mapDispatchToProps)(MovieOverview);
 
 
 
-// <Link to={`/MovieDetails/${movieList.id}`}> asjdkasljd </Link>
+//  asjdkasljd </Link>

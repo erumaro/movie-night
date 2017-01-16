@@ -32,7 +32,14 @@ const app = document.getElementById("app");
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-		<App />
+    <Router history={hashHistory}>
+      <Route path="/" component={App}>
+          <IndexRoute component={MovieOverview} />
+          <Route path="movieOverview" component={MovieOverview} />
+          <Route path="tvOverview/" component={TvOverview} />
+          <Route path="movieDetails/:id" component={MovieDetails} />
+      </Route>
+    </Router>
 	</Provider>,
 app
 
