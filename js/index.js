@@ -21,6 +21,7 @@ import createLogger from 'redux-logger';
 // Components / Containers
 import MovieOverview from './containers/movie_overview.js'
 import TvOverview from './containers/tv_overview.js'
+import MovieDetails from './containers/movie_details.js'
 
 // Consts
 const logger = createLogger();
@@ -30,7 +31,7 @@ const app = document.getElementById("app");
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-		<TvOverview />
+		<MovieDetails />
 	</Provider>,
 app
 
