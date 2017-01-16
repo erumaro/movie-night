@@ -1,5 +1,6 @@
 // StyleSheets
 require("../css/00-global.css");
+require("../css/01-movieoverview.css");
 
 // React
 import React from 'react';
@@ -9,7 +10,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxPromise from "redux-promise";
-// import reducers from './reducers';
+import reducers from './reducers';
 
 // Redux Logger
 import createLogger from 'redux-logger';
@@ -18,7 +19,8 @@ import createLogger from 'redux-logger';
 // import {Router, Route, IndexRoute, Link, IndexLink, IndexRedirect, hashHistory} from 'react-router';
 
 // Components / Containers
-import Test from './components/test';
+import MovieOverview from './containers/movie_overview.js'
+import TvOverview from './containers/tv_overview.js'
 
 // Consts
 const logger = createLogger();
@@ -27,9 +29,9 @@ const createStoreWithMiddleware = applyMiddleware(ReduxPromise, logger)(createSt
 const app = document.getElementById("app");
 
 ReactDOM.render(
-  // <Provider store={createStoreWithMiddleware(reducers)}>
-		<Test />,
-	// </Provider>,
+  <Provider store={createStoreWithMiddleware(reducers)}>
+		<TvOverview />
+	</Provider>,
 app
 
 );
