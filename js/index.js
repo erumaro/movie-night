@@ -16,9 +16,10 @@ import reducers from './reducers';
 import createLogger from 'redux-logger';
 
 // React Router
-// import {Router, Route, IndexRoute, Link, IndexLink, IndexRedirect, hashHistory} from 'react-router';
+import {Router, Route, IndexRoute, Link, IndexLink, IndexRedirect, hashHistory} from 'react-router';
 
 // Components / Containers
+import App from './components/app.js'
 import MovieOverview from './containers/movie_overview.js'
 import TvOverview from './containers/tv_overview.js'
 import MovieDetails from './containers/movie_details.js'
