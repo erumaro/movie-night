@@ -35,8 +35,8 @@ ReactDOM.render(
     <Router history={hashHistory}>
       <Route path="/" component={App}>
           <IndexRoute component={MovieOverview} />
-          <Route path="movieOverview/:categoryName" component={MovieOverview} />
-          <Route path="tvOverview/:categoryName" component={TvOverview} />
+          <Route path="movieOverview(/:category)" component={MovieOverview} />
+          <Route path="tvOverview(/:category)" component={TvOverview} />
           <Route path="movieDetails/:id" component={MovieDetails} />
       </Route>
     </Router>

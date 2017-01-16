@@ -11,12 +11,12 @@ export default class Header extends Component {
             <li>Film</li>
               <ul>
                 <li className="menu-item">
-                  <Link to="/">
+                  <Link to="/movieOverview/popular">
                     Popular
                   </Link>
                 </li>
                 <li className="menu-item">
-                  <Link to="/movieOverview/nowPlaying">
+                  <Link to='/movieOverview/nowPlaying'>
                     Now Playing
                   </Link>
                 </li>
@@ -34,22 +34,22 @@ export default class Header extends Component {
             <li>TV</li>
               <ul>
                 <li className="menu-item">
-                  <Link to="/tvOverview/">
+                  <Link to="/tvOverview/popular">
                     Popular
                   </Link>
                 </li>
                 <li className="menu-item">
-                  <Link to="...">
+                  <Link to="/tvOverview/nowPlaying">
                     Now Playing
                   </Link>
                 </li>
                 <li className="menu-item">
-                  <Link to="...">
+                  <Link to="/tvOverview/topRated">
                     Top Rated
                   </Link>
                 </li>
                 <li className="menu-item">
-                  <Link to="...">
+                  <Link to="/tvOverview/upcoming">
                     Upcoming
                   </Link>
                 </li>
