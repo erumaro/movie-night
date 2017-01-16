@@ -26136,9 +26136,9 @@
 			key: "componentWillMount",
 			value: function componentWillMount() {
 				// this.props.fetchPopularMovies();
-				this.props.fetchUpcomingMovies();
+				// this.props.fetchUpcomingMovies();
 				// this.props.fetchNowPlayingMovies();
-				// this.props.fetchTopRatedMovies();
+				this.props.fetchTopRatedMovies();
 			}
 		}, {
 			key: "renderMovies",
@@ -26341,7 +26341,7 @@
 		var request = (0, _axios2.default)({
 			method: "GET",
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			url: "discover/tv?api_key=" + API_KEY + "&language=en-US&sort_by=first_air_date.desc&first_air_date.gte=2017-01-15&first_air_date.lte=2017-01-31&page=1&include_null_first_air_dates=false",
+			url: "discover/tv?api_key=" + API_KEY + "&language=en-US&vote_count.gte=0&sort_by=first_air_date.desc&first_air_date.gte=2017-01-15&first_air_date.lte=2017-01-31&page=1&include_null_first_air_dates=false",
 			baseURL: "https://api.themoviedb.org/3"
 		});
 
@@ -47831,9 +47831,13 @@
 							"section",
 							{ className: "topInfo" },
 							_react2.default.createElement(
-								"h2",
-								null,
-								tvList.name
+								_reactRouter.Link,
+								{ to: "/TvDetails/" + tvList.id },
+								_react2.default.createElement(
+									"h2",
+									null,
+									tvList.name
+								)
 							),
 							_react2.default.createElement(
 								"h3",
@@ -47860,7 +47864,7 @@
 								null,
 								_react2.default.createElement(
 									"font",
-									{ color: "#cc0000" },
+									{ color: "#000" },
 									"\u271A"
 								),
 								" ",
@@ -47880,7 +47884,7 @@
 					_react2.default.createElement(
 						"h1",
 						null,
-						"Header Title"
+						"Airing today"
 					),
 					_react2.default.createElement(
 						"div",

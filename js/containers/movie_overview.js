@@ -12,6 +12,7 @@ import { fetchNowPlayingMovies } from "../actions/index.js";
 import { fetchTopRatedMovies } from "../actions/index.js";
 
 // Containers/Components
+import { MovieDetails } from "./movie_details.js"
 
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';
@@ -37,7 +38,7 @@ class MovieOverview extends Component {
 				<section className="info">
 					
 					<section className="topInfo">
-						<h2>{movieList.title}</h2>
+						<Link to={`/MovieDetails/${movieList.id}`}><h2>{movieList.title}</h2></Link>
 						<h3>{movieList.release_date}</h3>
 					</section>
 					

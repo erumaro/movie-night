@@ -12,6 +12,7 @@ import { fetchPlayingTV } from "../actions/index.js";
 import { fetchTopRatedTV } from "../actions/index.js";
 
 // Containers/Components
+import { MovieDetails } from "./movie_details.js"
 
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';
@@ -39,7 +40,7 @@ class TvOverview extends Component {
 				<section className="info">
 					
 					<section className="topInfo">
-						<h2>{tvList.name}</h2>
+						<Link to={`/TvDetails/${tvList.id}`}><h2>{tvList.name}</h2></Link>
 						<h3>{tvList.first_air_date}</h3>
 					</section>
 					
@@ -58,7 +59,7 @@ class TvOverview extends Component {
 
 		return (
 			<div className="fullPage">
-				<h1>Header Title</h1>
+				<h1>Airing today</h1>
 				
 				<div className="movieContainer">
 					{this.props.tv.map(this.renderTv)}
