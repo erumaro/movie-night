@@ -12,7 +12,7 @@ import { fetchPlayingTV } from "../actions/index.js";
 import { fetchTopRatedTV } from "../actions/index.js";
 
 // Containers/Components
-import { MovieDetails } from "./movie_details.js"
+// import { MovieDetails } from "./movie_details.js"
 
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';
