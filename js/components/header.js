@@ -5,10 +5,11 @@ export default class Header extends Component {
   render(){
     return(
       <header>
+        <div className="centeringDiv">
         <img src="../img/logo.PNG" />
         <nav className="site-navigation">
           <ul>
-            <li>Film</li>
+            <li><a className="current-overview" href="#">Film</a></li>
               <ul>
                 <li className="menu-item">
                   <Link to="/movieOverview/popular">
@@ -31,7 +32,7 @@ export default class Header extends Component {
                   </Link>
                 </li>
               </ul>
-            <li>TV</li>
+            <li><a href="#">TV</a></li>
               <ul>
                 <li className="menu-item">
                   <Link to="/tvOverview/popular">
@@ -56,6 +57,7 @@ export default class Header extends Component {
               </ul>
           </ul>
         </nav>
+        </div>
       </header>
     );
   }
