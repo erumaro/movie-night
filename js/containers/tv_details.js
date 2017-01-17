@@ -10,35 +10,35 @@ import { fetchMovieDetails } from "../actions/index.js";
 
 
 // Containers/Components
-import MovieOverview from "./movie_overview";
+import TvOverview from "./tv_overview";
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';
 
 
-class MovieDetails extends Component {
+class TvDetails extends Component {
 	
 	componentWillMount() {
 		// this.props.fetchPopularMovies();
 		// this.props.fetchUpcomingMovies();
 		// this.props.fetchNowPlayingMovies();
 		//this.props.fetchTopRatedMovies();
-		this.props.fetchMovieDetails(this.props.params.movieId);
+		this.props.fetchTvDetails(this.props.params.tvId);
 
 	}
 
 	renderMovieDetails(){
 	
-		return(
-		
-		<div>Movie Details</div>
-
-		)
+			return(
+			
+			<div>Tv Details</div>
+	
+			)
 	}
 
 	render(){
 
-		 if(this.props.movieDetails[0]){
-			console.log(this.props.movieDetails[0].title)
+		 if(this.props.tvDetails[0]){
+			console.log(this.props.tvDetails[0].title)
 		} 
 	
 		return (
@@ -46,7 +46,7 @@ class MovieDetails extends Component {
 				<h1>Header Title</h1>
 				
 				<div className="movieContainer">
-					{this.renderMovieDetails.bind(this)}
+					{this.renderTvDetails.bind(this)}
 				</div>
 	
 			</div>
@@ -57,11 +57,11 @@ class MovieDetails extends Component {
 
 
 function mapStateToProps(state){
-	return { movieDetails: state.movieDetails };
+	return { movieDetails: state.tvDetails };
 }
 
 function mapDispatchToProps(dispatch){
-	return bindActionCreators ({fetchMovieDetails}, dispatch);
+	return bindActionCreators ({fetchTvDetails}, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(TvDetails);
