@@ -16,9 +16,10 @@ import reducers from './reducers';
 import createLogger from 'redux-logger';
 
 // React Router
-// import {Router, Route, IndexRoute, Link, IndexLink, IndexRedirect, hashHistory} from 'react-router';
+import {Router, Route, IndexRoute, Link, IndexLink, IndexRedirect, hashHistory} from 'react-router';
 
 // Components / Containers
+import App from './components/app.js'
 import MovieOverview from './containers/movie_overview.js'
 import TvOverview from './containers/tv_overview.js'
 import MovieDetails from './containers/movie_details.js'
@@ -31,7 +32,14 @@ const app = document.getElementById("app");
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-		<MovieDetails />
+    <Router history={hashHistory}>
+      <Route path="/" component={App}>
+          <IndexRoute component={MovieOverview} />
+          <Route path="movieOverview(/:category)" component={MovieOverview} />
+          <Route path="tvOverview(/:category)" component={TvOverview} />
+          <Route path="movieDetails/:id" component={MovieDetails} />
+      </Route>
+    </Router>
 	</Provider>,
 app
 

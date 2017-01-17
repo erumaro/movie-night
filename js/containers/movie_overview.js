@@ -12,10 +12,12 @@ import { fetchNowPlayingMovies } from "../actions/index.js";
 import { fetchTopRatedMovies } from "../actions/index.js";
 
 // Containers/Components
+import { MovieDetails } from "./movie_details.js"
 
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';
 
+// let category = this.props.params.menuCategory
 
 class MovieOverview extends Component {
 	
@@ -24,6 +26,9 @@ class MovieOverview extends Component {
 		// this.props.fetchUpcomingMovies();
 		// this.props.fetchNowPlayingMovies();
 		this.props.fetchTopRatedMovies();
+		
+		// Hämta "Category" från Router test
+		// this.props.category();
 	}
 
 	renderMovies(movieList){
@@ -37,7 +42,7 @@ class MovieOverview extends Component {
 				<section className="info">
 					
 					<section className="topInfo">
-						<h2>{movieList.title}</h2>
+						<Link to={`/movieDetails/${movieList.id}`}><h2>{movieList.title}</h2></Link>
 						<h3>{movieList.release_date}</h3>
 					</section>
 					
@@ -82,3 +87,7 @@ function mapDispatchToProps(dispatch){
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieOverview);
+
+
+
+//  asjdkasljd </Link>

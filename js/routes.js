@@ -1,20 +1,19 @@
+/*
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import App from './components/app';
-import PostsIndex from './components/posts_index';
-import PostsNew from './components/posts_new';
-import PostsShow from './components/posts_show';
+import MovieOverview from './containers/movie_oveview';
+import MovieDetails from './containers/movie_details';
 
 export default (
     <Route path="/" component={App}>
-        <IndexRoute component={PostsIndex} />
-        <Route path="posts/new" component={PostsNew} />
-        <Route path="posts/:id" component={PostsShow} />
+        <IndexRoute component={MovieOverview} />
+        <Route path="movieDetails/:id" component={MovieDetails} />
     </Route>
 );
 
-/*
+
 Movie / TV Popular as index page
 index (overview)
 List:

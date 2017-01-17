@@ -108,7 +108,7 @@ export function fetchUpcomingTV(){
 	const request = axios({
   	method: "GET",
   	headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-  	url: "discover/tv?api_key=" + API_KEY + "&language=en-US&sort_by=first_air_date.desc&first_air_date.gte=2017-01-15&first_air_date.lte=2017-01-31&page=1&include_null_first_air_dates=false",
+  	url: "discover/tv?api_key=" + API_KEY + "&language=en-US&vote_count.gte=0&sort_by=first_air_date.desc&first_air_date.gte=2017-01-15&first_air_date.lte=2017-01-31&page=1&include_null_first_air_dates=false",
   	baseURL: "https://api.themoviedb.org/3"
 	})
 
