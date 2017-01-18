@@ -6,10 +6,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 // Actions
-import { fetchPopularTV } from "../actions/index.js";
 import { fetchUpcomingTV } from "../actions/index.js";
-import { fetchPlayingTV } from "../actions/index.js";
-import { fetchTopRatedTV } from "../actions/index.js";
 
 // Containers/Components
 // import { MovieDetails } from "./movie_details.js"
@@ -20,13 +17,10 @@ import {Router, Route, Link, hashHistory } from 'react-router';
 // Other
 //import moment from "moment"
 
-class TvOverview extends Component {
+class TvOverviewUpcoming extends Component {
 	
 	componentWillMount() {
-		// this.props.fetchPopularTV();
-		// this.props.fetchUpcomingTV();
-		this.props.fetchPlayingTV();
-		// this.props.fetchTopRatedTV();
+		this.props.fetchUpcomingTV();
 	}
 
 	renderTv(tvList){
@@ -57,9 +51,9 @@ class TvOverview extends Component {
 
 	render(){
 
-		return (
-			<div className="fullPage">
-				<h1>Airing today</h1>
+		return ( 
+			<div className="fullPage centeringDiv">
+				<h1>Upcoming TV series</h1>
 				
 				<div className="movieContainer">
 					{this.props.tv.map(this.renderTv)}
@@ -77,9 +71,9 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-	return bindActionCreators ({fetchPopularTV, fetchUpcomingTV, fetchPlayingTV, fetchTopRatedTV}, dispatch);
+	return bindActionCreators ({fetchUpcomingTV}, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TvOverview);
+export default connect(mapStateToProps, mapDispatchToProps)(TvOverviewUpcoming);
 
 // 

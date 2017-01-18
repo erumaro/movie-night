@@ -40,7 +40,7 @@ export default class Header extends Component {
                   </Link>
                 </li>
                 <li className="menu-item">
-                  <Link to="/tvOverview/nowPlaying">
+                  <Link to="/tvOverview/playing">
                     Now Playing
                   </Link>
                 </li>

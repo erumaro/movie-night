@@ -52,7 +52,7 @@ class MovieOverviewUpcoming extends Component {
 
 		return (
 			<div className="fullPage centeringDiv">
-				<h1>Upcoming Movies</h1>
+				<h1>Upcoming Movies this month</h1>
 				
 				<div className="movieContainer">
 					{this.props.movies.map(this.renderMovies)}
