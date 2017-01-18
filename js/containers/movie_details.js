@@ -10,7 +10,11 @@ import { fetchMovieDetails } from "../actions/index.js";
 
 
 // Containers/Components
-import MovieOverview from "./movie_overview";
+import MovieOverviewPopular from '../containers/movie_overview_popular.js'
+import MovieOverviewUpcoming from '../containers/movie_overview_upcoming.js'
+import MovieOverviewPlaying from '../containers/movie_overview_playing.js'
+import MovieOverviewToprated from '../containers/movie_overview_toprated.js'
+
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';
 

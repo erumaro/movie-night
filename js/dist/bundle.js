@@ -76,9 +76,9 @@
 
 	var _app2 = _interopRequireDefault(_app);
 
-	var _movie_overview = __webpack_require__(306);
+	var _movie_overview_popular = __webpack_require__(456);
 
-	var _movie_overview2 = _interopRequireDefault(_movie_overview);
+	var _movie_overview_popular2 = _interopRequireDefault(_movie_overview_popular);
 
 	var _tv_overview = __webpack_require__(445);
 
@@ -93,6 +93,8 @@
 	// StyleSheets
 	__webpack_require__(446);
 	__webpack_require__(450);
+	__webpack_require__(452);
+	__webpack_require__(454);
 
 	// React
 
@@ -124,9 +126,9 @@
 	    _react2.default.createElement(
 	      _reactRouter.Route,
 	      { path: "/", component: _app2.default },
-	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _movie_overview2.default }),
-	      _react2.default.createElement(_reactRouter.Route, { path: "movieOverview/:categoryName", component: _movie_overview2.default }),
-	      _react2.default.createElement(_reactRouter.Route, { path: "tvOverview/:categoryName", component: _tv_overview2.default }),
+	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _movie_overview_popular2.default }),
+	      _react2.default.createElement(_reactRouter.Route, { path: "movieOverview(/:category)", component: _movie_overview_popular2.default }),
+	      _react2.default.createElement(_reactRouter.Route, { path: "tvOverview(/:category)", component: _tv_overview2.default }),
 	      _react2.default.createElement(_reactRouter.Route, { path: "movieDetails/:id", component: _movie_details2.default })
 	    )
 	  )
@@ -31257,75 +31259,37 @@
 	// React Router
 
 
-	var MovieOverview = function (_Component) {
-		_inherits(MovieOverview, _Component);
+	var MovieOverviewPopular = function (_Component) {
+		_inherits(MovieOverviewPopular, _Component);
 
-		function MovieOverview() {
-			_classCallCheck(this, MovieOverview);
+		function MovieOverviewPopular() {
+			_classCallCheck(this, MovieOverviewPopular);
 
-			return _possibleConstructorReturn(this, (MovieOverview.__proto__ || Object.getPrototypeOf(MovieOverview)).apply(this, arguments));
+			return _possibleConstructorReturn(this, (MovieOverviewPopular.__proto__ || Object.getPrototypeOf(MovieOverviewPopular)).apply(this, arguments));
 		}
 
-		_createClass(MovieOverview, [{
+		_createClass(MovieOverviewPopular, [{
 			key: "componentWillReceiveProps",
-
-			/*
-	  constructor(props){
-	  super(props)
-	  		this.state = {
-	  	movieCat: "nowPlaying"
-	  }
-	  }
-	  */
-
 			value: function componentWillReceiveProps(nextProps) {
+				console.log(nextProps);
 				if (nextProps.params.categoryName === "nowPlaying") {
 					this.props.fetchNowPlayingMovies();
 				}
 
+				console.log(nextProps);
 				if (nextProps.params.categoryName === "topRated") {
 					this.props.this.props.fetchTopRatedMovies();
 				}
 			}
+		}, {
+			key: "componentWillMount",
+			value: function componentWillMount() {
 
-			/*
-	  
-	  componentDidMount(){
-	  	this.setState({movieCat: "reset"})
-	  }
-	  
-	  */
-
-			/*
-	  componentWillMount() {
-	  	console.log(this.props.params.categoryName)
-	  	if(this.state.movieCat === "nowPlaying"){
-	  		this.props.fetchNowPlayingMovies();
-	  	}
-	  
-	  	if(this.state.movieCat === "topRated"){
-	  		this.props.this.props.fetchTopRatedMovies();
-	  	}
-	  	
-	  	console.log(this.state.movieCat)
-	  	// this.props.fetchPopularMovies();
-	  	// this.props.fetchUpcomingMovies();
-	  	// this.props.fetchNowPlayingMovies();
-	  	// this.props.fetchTopRatedMovies();
-	  	
-	  	// Hämta "Category" från Router test
-	  	// this.props.category();
-	  	if(this.props.params.categoryName === "nowPlaying"){
-	  		console.log("NOW PLAYING ACTION")
-	  		this.props.fetchNowPlayingMovies();
-	  	}
-	  	if (this.props.params.categoryName === "topRated"){
-	  		console.log("TOP RATED")
-	  		this.props.fetchTopRatedMovies();
-	  	}
-	  }
-	  */
-
+				this.props.fetchPopularMovies();
+				// this.props.fetchUpcomingMovies();
+				// this.props.fetchNowPlayingMovies();
+				// this.props.fetchTopRatedMovies();
+			}
 		}, {
 			key: "renderMovies",
 			value: function renderMovies(movieList) {
@@ -31377,19 +31341,14 @@
 		}, {
 			key: "render",
 			value: function render() {
-				/*
-	   		 if(this.props.movies[0]){
-	   			console.log("https://image.tmdb.org/t/p/w500_and_h281_bestv2/" + this.props.movies[1].backdrop_path)
-	   		}
-	   */
 
 				return _react2.default.createElement(
 					"div",
-					{ className: "fullPage" },
+					{ className: "fullPage centeringDiv" },
 					_react2.default.createElement(
 						"h1",
 						null,
-						"Header Title"
+						"Popular Movies"
 					),
 					_react2.default.createElement(
 						"div",
@@ -31400,7 +31359,7 @@
 			}
 		}]);
 
-		return MovieOverview;
+		return MovieOverviewPopular;
 	}(_react.Component);
 
 	function mapStateToProps(state) {
@@ -31411,9 +31370,7 @@
 		return (0, _redux.bindActionCreators)({ fetchPopularMovies: _index.fetchPopularMovies, fetchUpcomingMovies: _index.fetchUpcomingMovies, fetchNowPlayingMovies: _index.fetchNowPlayingMovies, fetchTopRatedMovies: _index.fetchTopRatedMovies }, dispatch);
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MovieOverview);
-
-	//  asjdkasljd </Link>
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MovieOverviewPopular);
 
 /***/ },
 /* 307 */
@@ -31458,7 +31415,10 @@
 			method: "GET",
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 			url: "movie/popular?api_key=" + API_KEY + "&language=se&page=1",
-			baseURL: "https://api.themoviedb.org/3"
+			baseURL: "https://api.themoviedb.org/3",
+			params: {
+				ID: 12345
+			}
 		});
 
 		return {
@@ -31518,7 +31478,7 @@
 		var request = (0, _axios2.default)({
 			method: "GET",
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			url: "/movie/" + movieId + "?api_key=" + API_KEY + "&language=se&page=1",
+			url: "/movie/" + movieId + "?api_key=" + API_KEY + "&language=en-US",
 			baseURL: "https://api.themoviedb.org/3"
 		});
 
@@ -47989,6 +47949,8 @@
 		value: true
 	});
 
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
@@ -48048,13 +48010,83 @@
 		}, {
 			key: "renderMovieDetails",
 			value: function renderMovieDetails() {
+				var _this2 = this;
 
 				if (this.props.movieDetails[0]) {
-					return _react2.default.createElement(
-						"div",
-						null,
-						this.props.movieDetails[0].title
-					);
+					var _ret = function () {
+						var releaseDate = _this2.props.movieDetails[0].release_date;
+						var genres = "";
+						var i = 0;
+						var genreArr = _this2.props.movieDetails[0].genres;
+						var genre = genreArr.forEach(function (genre) {
+							i !== genreArr.length - 1 ? genres += genre.name + ", " : genres += genre.name;
+							i++;
+						});
+						return {
+							v: _react2.default.createElement(
+								"div",
+								{ id: "detail-wrapper" },
+								_react2.default.createElement(
+									"div",
+									{ id: "detail-container" },
+									_react2.default.createElement(
+										"figure",
+										null,
+										_react2.default.createElement("img", { src: "https://image.tmdb.org/t/p/w500/" + _this2.props.movieDetails[0].poster_path, alt: "poster" })
+									),
+									_react2.default.createElement(
+										"section",
+										null,
+										_react2.default.createElement(
+											"h1",
+											null,
+											_this2.props.movieDetails[0].title
+										),
+										_react2.default.createElement(
+											"span",
+											null,
+											genres
+										),
+										_react2.default.createElement(
+											"h2",
+											null,
+											"Overview"
+										),
+										_react2.default.createElement(
+											"p",
+											null,
+											"Lorem ipsum dolor sit amet, nemore impedit assueverit ut his, his nibh solum mnesarchum ex. Eum posse partem platonem cu, vel oportere scripserit ad. Ut eos electram abhorreant, per te rebum meliore blandit, vis choro evertitur consequuntur ex. Audire appareat his ne, ex eum rebum ridens sensibus. Altera hendrerit cu sea, his in detraxit theophrastus, affert civibus pro id. Nec ut dolor urbanitas, ut quodsi lobortis vituperata pro. Duo ferri erroribus hendrerit ne, at nostro viderer mel, et facete appetere mea. His ea integre expetenda, harum oblique vivendo ei mel, eos an dolor accusamus. Vel ut viderer iracundia, stet offendit id vel. Ceteros dissentiet et sea. Nullam eligendi ei quo, ea debet aperiri vix. Mea cu vivendo perfecto reformidans, ea illud fugit dicant vix, melius intellegam definitionem eum at. Ne laoreet probatus nominati mel. Errem salutandi no has, in verear molestie nec. No has hinc ullum officiis. Dicam quaestio complectitur mei te, habeo perfecto molestiae est no, vix ceteros dissentiunt an. Vim oratio nostrum scriptorem no."
+										),
+										_react2.default.createElement(
+											"h2",
+											null,
+											"Facts for geeks"
+										),
+										_react2.default.createElement(
+											"p",
+											null,
+											"Release: ",
+											releaseDate
+										),
+										_react2.default.createElement(
+											"p",
+											null,
+											"Vote Avg: ",
+											_this2.props.movieDetails[0].vote_average
+										),
+										_react2.default.createElement(
+											"p",
+											null,
+											"Vote Count: ",
+											_this2.props.movieDetails[0].vote_count
+										)
+									)
+								)
+							)
+						};
+					}();
+
+					if ((typeof _ret === "undefined" ? "undefined" : _typeof(_ret)) === "object") return _ret.v;
 				} else {
 					_react2.default.createElement(
 						"div",
@@ -48142,100 +48174,112 @@
 	      return _react2.default.createElement(
 	        'header',
 	        null,
-	        _react2.default.createElement('img', { src: '../img/logo.PNG' }),
 	        _react2.default.createElement(
-	          'nav',
-	          { className: 'site-navigation' },
+	          'div',
+	          { className: 'centeringDiv' },
+	          _react2.default.createElement('img', { src: '../img/logo.PNG' }),
 	          _react2.default.createElement(
-	            'ul',
-	            null,
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'Film'
-	            ),
+	            'nav',
+	            { className: 'site-navigation' },
 	            _react2.default.createElement(
 	              'ul',
 	              null,
 	              _react2.default.createElement(
 	                'li',
-	                { className: 'menu-item' },
+	                null,
 	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/' },
-	                  'Popular'
+	                  'a',
+	                  { className: 'current-overview', href: '#' },
+	                  'Film'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'ul',
+	                null,
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: 'menu-item' },
+	                  _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/movieOverview/popular' },
+	                    'Popular'
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: 'menu-item' },
+	                  _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/movieOverview/nowPlaying' },
+	                    'Now Playing'
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: 'menu-item' },
+	                  _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/movieOverview/topRated' },
+	                    'Top Rated'
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: 'menu-item' },
+	                  _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/movieOverview/upcoming' },
+	                    'Upcoming'
+	                  )
 	                )
 	              ),
 	              _react2.default.createElement(
 	                'li',
-	                { className: 'menu-item' },
+	                null,
 	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/movieOverview/nowPlaying' },
-	                  'Now Playing'
+	                  'a',
+	                  { href: '#' },
+	                  'TV'
 	                )
 	              ),
 	              _react2.default.createElement(
-	                'li',
-	                { className: 'menu-item' },
+	                'ul',
+	                null,
 	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/movieOverview/topRated' },
-	                  'Top Rated'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                { className: 'menu-item' },
+	                  'li',
+	                  { className: 'menu-item' },
+	                  _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/tvOverview/popular' },
+	                    'Popular'
+	                  )
+	                ),
 	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/movieOverview/upcoming' },
-	                  'Upcoming'
-	                )
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'TV'
-	            ),
-	            _react2.default.createElement(
-	              'ul',
-	              null,
-	              _react2.default.createElement(
-	                'li',
-	                { className: 'menu-item' },
+	                  'li',
+	                  { className: 'menu-item' },
+	                  _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/tvOverview/nowPlaying' },
+	                    'Now Playing'
+	                  )
+	                ),
 	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '/tvOverview/' },
-	                  'Popular'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                { className: 'menu-item' },
+	                  'li',
+	                  { className: 'menu-item' },
+	                  _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/tvOverview/topRated' },
+	                    'Top Rated'
+	                  )
+	                ),
 	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '...' },
-	                  'Now Playing'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                { className: 'menu-item' },
-	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '...' },
-	                  'Top Rated'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'li',
-	                { className: 'menu-item' },
-	                _react2.default.createElement(
-	                  _reactRouter.Link,
-	                  { to: '...' },
-	                  'Upcoming'
+	                  'li',
+	                  { className: 'menu-item' },
+	                  _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/tvOverview/upcoming' },
+	                    'Upcoming'
+	                  )
 	                )
 	              )
 	            )
@@ -48425,8 +48469,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./00-global.css", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./00-global.css");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./normalize.css", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./normalize.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -48444,7 +48488,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\r\n\tbackground-color: #EFEFEF;\r\n}\r\n\r\nh1, h2, h3, p {\r\n\tfont-family: \"Roboto\";\r\n}\r\n\r\nh1 {\r\n\tfont-size: 20px;\r\n}\r\n\r\nh2 {\r\n\tfont-size: 18px;\r\n}\r\n\r\nh3 {\r\n\tfont-size: 14px;\r\n}\r\n\r\nh2 {\r\n\tpadding: 0px;\r\n\tmargin: 0px;\r\n}", ""]);
+	exports.push([module.id, "/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */\r\n\r\n/**\r\n * 1. Change the default font family in all browsers (opinionated).\r\n * 2. Correct the line height in all browsers.\r\n * 3. Prevent adjustments of font size after orientation changes in\r\n *    IE on Windows Phone and in iOS.\r\n */\r\n\r\n/* Document\r\n   ========================================================================== */\r\n\r\nhtml {\r\n  font-family: sans-serif; /* 1 */\r\n  line-height: 1.15; /* 2 */\r\n  -ms-text-size-adjust: 100%; /* 3 */\r\n  -webkit-text-size-adjust: 100%; /* 3 */\r\n}\r\n\r\n/* Sections\r\n   ========================================================================== */\r\n\r\n/**\r\n * Remove the margin in all browsers (opinionated).\r\n */\r\n\r\nbody {\r\n  margin: 0;\r\n}\r\n\r\n/**\r\n * Add the correct display in IE 9-.\r\n */\r\n\r\narticle,\r\naside,\r\nfooter,\r\nheader,\r\nnav,\r\nsection {\r\n  display: block;\r\n}\r\n\r\n/**\r\n * Correct the font size and margin on `h1` elements within `section` and\r\n * `article` contexts in Chrome, Firefox, and Safari.\r\n */\r\n\r\nh1 {\r\n  font-size: 2em;\r\n  margin: 0.67em 0;\r\n}\r\n\r\n/* Grouping content\r\n   ========================================================================== */\r\n\r\n/**\r\n * Add the correct display in IE 9-.\r\n * 1. Add the correct display in IE.\r\n */\r\n\r\nfigcaption,\r\nfigure,\r\nmain { /* 1 */\r\n  display: block;\r\n}\r\n\r\n/**\r\n * Add the correct margin in IE 8.\r\n */\r\n\r\nfigure {\r\n  margin: 1em 40px;\r\n}\r\n\r\n/**\r\n * 1. Add the correct box sizing in Firefox.\r\n * 2. Show the overflow in Edge and IE.\r\n */\r\n\r\nhr {\r\n  box-sizing: content-box; /* 1 */\r\n  height: 0; /* 1 */\r\n  overflow: visible; /* 2 */\r\n}\r\n\r\n/**\r\n * 1. Correct the inheritance and scaling of font size in all browsers.\r\n * 2. Correct the odd `em` font sizing in all browsers.\r\n */\r\n\r\npre {\r\n  font-family: monospace, monospace; /* 1 */\r\n  font-size: 1em; /* 2 */\r\n}\r\n\r\n/* Text-level semantics\r\n   ========================================================================== */\r\n\r\n/**\r\n * 1. Remove the gray background on active links in IE 10.\r\n * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.\r\n */\r\n\r\na {\r\n  background-color: transparent; /* 1 */\r\n  -webkit-text-decoration-skip: objects; /* 2 */\r\n}\r\n\r\n/**\r\n * Remove the outline on focused links when they are also active or hovered\r\n * in all browsers (opinionated).\r\n */\r\n\r\na:active,\r\na:hover {\r\n  outline-width: 0;\r\n}\r\n\r\n/**\r\n * 1. Remove the bottom border in Firefox 39-.\r\n * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.\r\n */\r\n\r\nabbr[title] {\r\n  border-bottom: none; /* 1 */\r\n  text-decoration: underline; /* 2 */\r\n  text-decoration: underline dotted; /* 2 */\r\n}\r\n\r\n/**\r\n * Prevent the duplicate application of `bolder` by the next rule in Safari 6.\r\n */\r\n\r\nb,\r\nstrong {\r\n  font-weight: inherit;\r\n}\r\n\r\n/**\r\n * Add the correct font weight in Chrome, Edge, and Safari.\r\n */\r\n\r\nb,\r\nstrong {\r\n  font-weight: bolder;\r\n}\r\n\r\n/**\r\n * 1. Correct the inheritance and scaling of font size in all browsers.\r\n * 2. Correct the odd `em` font sizing in all browsers.\r\n */\r\n\r\ncode,\r\nkbd,\r\nsamp {\r\n  font-family: monospace, monospace; /* 1 */\r\n  font-size: 1em; /* 2 */\r\n}\r\n\r\n/**\r\n * Add the correct font style in Android 4.3-.\r\n */\r\n\r\ndfn {\r\n  font-style: italic;\r\n}\r\n\r\n/**\r\n * Add the correct background and color in IE 9-.\r\n */\r\n\r\nmark {\r\n  background-color: #ff0;\r\n  color: #000;\r\n}\r\n\r\n/**\r\n * Add the correct font size in all browsers.\r\n */\r\n\r\nsmall {\r\n  font-size: 80%;\r\n}\r\n\r\n/**\r\n * Prevent `sub` and `sup` elements from affecting the line height in\r\n * all browsers.\r\n */\r\n\r\nsub,\r\nsup {\r\n  font-size: 75%;\r\n  line-height: 0;\r\n  position: relative;\r\n  vertical-align: baseline;\r\n}\r\n\r\nsub {\r\n  bottom: -0.25em;\r\n}\r\n\r\nsup {\r\n  top: -0.5em;\r\n}\r\n\r\n/* Embedded content\r\n   ========================================================================== */\r\n\r\n/**\r\n * Add the correct display in IE 9-.\r\n */\r\n\r\naudio,\r\nvideo {\r\n  display: inline-block;\r\n}\r\n\r\n/**\r\n * Add the correct display in iOS 4-7.\r\n */\r\n\r\naudio:not([controls]) {\r\n  display: none;\r\n  height: 0;\r\n}\r\n\r\n/**\r\n * Remove the border on images inside links in IE 10-.\r\n */\r\n\r\nimg {\r\n  border-style: none;\r\n}\r\n\r\n/**\r\n * Hide the overflow in IE.\r\n */\r\n\r\nsvg:not(:root) {\r\n  overflow: hidden;\r\n}\r\n\r\n/* Forms\r\n   ========================================================================== */\r\n\r\n/**\r\n * 1. Change the font styles in all browsers (opinionated).\r\n * 2. Remove the margin in Firefox and Safari.\r\n */\r\n\r\nbutton,\r\ninput,\r\noptgroup,\r\nselect,\r\ntextarea {\r\n  font-family: sans-serif; /* 1 */\r\n  font-size: 100%; /* 1 */\r\n  line-height: 1.15; /* 1 */\r\n  margin: 0; /* 2 */\r\n}\r\n\r\n/**\r\n * Show the overflow in IE.\r\n * 1. Show the overflow in Edge.\r\n */\r\n\r\nbutton,\r\ninput { /* 1 */\r\n  overflow: visible;\r\n}\r\n\r\n/**\r\n * Remove the inheritance of text transform in Edge, Firefox, and IE.\r\n * 1. Remove the inheritance of text transform in Firefox.\r\n */\r\n\r\nbutton,\r\nselect { /* 1 */\r\n  text-transform: none;\r\n}\r\n\r\n/**\r\n * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`\r\n *    controls in Android 4.\r\n * 2. Correct the inability to style clickable types in iOS and Safari.\r\n */\r\n\r\nbutton,\r\nhtml [type=\"button\"], /* 1 */\r\n[type=\"reset\"],\r\n[type=\"submit\"] {\r\n  -webkit-appearance: button; /* 2 */\r\n}\r\n\r\n/**\r\n * Remove the inner border and padding in Firefox.\r\n */\r\n\r\nbutton::-moz-focus-inner,\r\n[type=\"button\"]::-moz-focus-inner,\r\n[type=\"reset\"]::-moz-focus-inner,\r\n[type=\"submit\"]::-moz-focus-inner {\r\n  border-style: none;\r\n  padding: 0;\r\n}\r\n\r\n/**\r\n * Restore the focus styles unset by the previous rule.\r\n */\r\n\r\nbutton:-moz-focusring,\r\n[type=\"button\"]:-moz-focusring,\r\n[type=\"reset\"]:-moz-focusring,\r\n[type=\"submit\"]:-moz-focusring {\r\n  outline: 1px dotted ButtonText;\r\n}\r\n\r\n/**\r\n * Change the border, margin, and padding in all browsers (opinionated).\r\n */\r\n\r\nfieldset {\r\n  border: 1px solid #c0c0c0;\r\n  margin: 0 2px;\r\n  padding: 0.35em 0.625em 0.75em;\r\n}\r\n\r\n/**\r\n * 1. Correct the text wrapping in Edge and IE.\r\n * 2. Correct the color inheritance from `fieldset` elements in IE.\r\n * 3. Remove the padding so developers are not caught out when they zero out\r\n *    `fieldset` elements in all browsers.\r\n */\r\n\r\nlegend {\r\n  box-sizing: border-box; /* 1 */\r\n  color: inherit; /* 2 */\r\n  display: table; /* 1 */\r\n  max-width: 100%; /* 1 */\r\n  padding: 0; /* 3 */\r\n  white-space: normal; /* 1 */\r\n}\r\n\r\n/**\r\n * 1. Add the correct display in IE 9-.\r\n * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.\r\n */\r\n\r\nprogress {\r\n  display: inline-block; /* 1 */\r\n  vertical-align: baseline; /* 2 */\r\n}\r\n\r\n/**\r\n * Remove the default vertical scrollbar in IE.\r\n */\r\n\r\ntextarea {\r\n  overflow: auto;\r\n}\r\n\r\n/**\r\n * 1. Add the correct box sizing in IE 10-.\r\n * 2. Remove the padding in IE 10-.\r\n */\r\n\r\n[type=\"checkbox\"],\r\n[type=\"radio\"] {\r\n  box-sizing: border-box; /* 1 */\r\n  padding: 0; /* 2 */\r\n}\r\n\r\n/**\r\n * Correct the cursor style of increment and decrement buttons in Chrome.\r\n */\r\n\r\n[type=\"number\"]::-webkit-inner-spin-button,\r\n[type=\"number\"]::-webkit-outer-spin-button {\r\n  height: auto;\r\n}\r\n\r\n/**\r\n * 1. Correct the odd appearance in Chrome and Safari.\r\n * 2. Correct the outline style in Safari.\r\n */\r\n\r\n[type=\"search\"] {\r\n  -webkit-appearance: textfield; /* 1 */\r\n  outline-offset: -2px; /* 2 */\r\n}\r\n\r\n/**\r\n * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.\r\n */\r\n\r\n[type=\"search\"]::-webkit-search-cancel-button,\r\n[type=\"search\"]::-webkit-search-decoration {\r\n  -webkit-appearance: none;\r\n}\r\n\r\n/**\r\n * 1. Correct the inability to style clickable types in iOS and Safari.\r\n * 2. Change font properties to `inherit` in Safari.\r\n */\r\n\r\n::-webkit-file-upload-button {\r\n  -webkit-appearance: button; /* 1 */\r\n  font: inherit; /* 2 */\r\n}\r\n\r\n/* Interactive\r\n   ========================================================================== */\r\n\r\n/*\r\n * Add the correct display in IE 9-.\r\n * 1. Add the correct display in Edge, IE, and Firefox.\r\n */\r\n\r\ndetails, /* 1 */\r\nmenu {\r\n  display: block;\r\n}\r\n\r\n/*\r\n * Add the correct display in all browsers.\r\n */\r\n\r\nsummary {\r\n  display: list-item;\r\n}\r\n\r\n/* Scripting\r\n   ========================================================================== */\r\n\r\n/**\r\n * Add the correct display in IE 9-.\r\n */\r\n\r\ncanvas {\r\n  display: inline-block;\r\n}\r\n\r\n/**\r\n * Add the correct display in IE.\r\n */\r\n\r\ntemplate {\r\n  display: none;\r\n}\r\n\r\n/* Hidden\r\n   ========================================================================== */\r\n\r\n/**\r\n * Add the correct display in IE 10-.\r\n */\r\n\r\n[hidden] {\r\n  display: none;\r\n}\r\n", ""]);
 
 	// exports
 
@@ -48773,8 +48817,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./01-movieoverview.css", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./01-movieoverview.css");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./00-global.css", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./00-global.css");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -48792,10 +48836,250 @@
 
 
 	// module
+	exports.push([module.id, "body {\r\n\tbackground-color: #7b1010;\r\n}\r\n\r\n.centeringDiv{\r\n    width: 100%;\r\n    max-width: 1200px;\r\n    margin: 0 auto;\r\n}\r\n\r\n.fullPage{\r\n    background: #efefef;\r\n    box-shadow: 0 1.5em 4em rgba(0, 0, 0, 1);\r\n\tpadding: 0;\r\n}\r\n\r\nh1, h2, h3, p {\r\n\tfont-family: \"Roboto\";\r\n}\r\n\r\nh1 {\r\n\tfont-size: 20px;\r\n\tpadding: 0px;\r\n\tmargin: 0px;\r\n}\r\n\r\nh2 {\r\n\tfont-size: 18px;\r\n}\r\n\r\nh3 {\r\n\tfont-size: 14px;\r\n}\r\n\r\nh2 {\r\n\tpadding: 0px;\r\n\tmargin: 0px;\r\n}", ""]);
+
+	// exports
+
+
+/***/ },
+/* 452 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(453);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(449)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./01-movieoverview.css", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./01-movieoverview.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 453 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(448)();
+	// imports
+
+
+	// module
 	exports.push([module.id, "/*\t Movie Night Overview \t*/\r\n\r\n/*\tIndex ---------------\r\n\t\t¤ Typography\r\n\t\t¤ Page Structure\r\n\t\t¤ Header & Nav\r\n\t\t¤ Content & Media\r\n\t\t¤ Misc \r\n\t\t---------------------\r\n*/\r\n\r\n/* \t¤ Typography --------- */\r\n\r\n/* Top Info */\r\nsection.topInfo {\r\n\tdisplay: flex;\r\n\tflex-direction: row;\r\n\tjustify-content: space-between;\r\n}\r\n\r\n/* Title */ \r\nsection.topInfo h2 {\r\n\tcolor: #000;\r\n\tpadding: 10px;\r\n}\r\n\r\n/* Relasedate */\r\nsection.topInfo h3 {\r\n\tcolor: #666;\r\n\tpadding-right: 10px;\r\n\tmargin-bottom: 0px;\r\n}\r\n\r\n/* Bottom Info */\r\nsection.bottomInfo {\r\n\tdisplay: flex;\r\n\tflex-direction: row;\r\n\tjustify-content: space-between;\r\n}\r\n\r\n/* Votes */\r\nsection.bottomInfo h3 {\r\n\tcolor: #666;\r\n\tpadding-left: 10px;\r\n\tmargin-top: 0px;\r\n}\r\n\r\n/* Grades */\r\nsection.bottomInfo h3:nth-child(2){\r\n\tpadding-right: 10px;\r\n}\r\n\r\n/*\t---------------------- */\r\n\r\n\r\n/* \t¤ Page Structure ----- */\r\ndiv.movieContainer {\r\n\tdisplay: flex;\r\n\tflex-direction: row;\r\n\tflex-wrap: wrap;\r\n}\r\n\r\narticle.movieThumb {\t\r\n\twidth: 40%;\r\n\tborder: 1px solid #666;\r\n\tbackground-color: #FFF;\r\n\tmargin-left: 50px;\r\n\tmargin-bottom: 50px;\r\n\tbox-shadow: 0px 2px 10px 0px #666;\r\n\t\r\n}\r\n\r\n\r\n/*\t---------------------- */\r\n\r\n\r\n/* \t¤ Header & Nav ------- */\r\n\r\n/* Header Category */\r\n.fullPage h1 {\r\n\tmargin-left: 50px;\r\n}\r\n\r\n\r\n\r\n/*\t----------------------\r\n\r\n\r\n/* \t¤ Content & Media ---- */\r\n\r\narticle.movieThumb img {\r\n\twidth: 100%;\r\n\theight: auto;\r\n\tborder-bottom: 1px solid #666;\r\n}\r\n\r\narticle.movieThumb img.icons {\r\n\twidth: 12px;\r\n\theight: 12px;\r\n\tborder-bottom: none;\r\n}\r\n\r\n\r\n\r\n\r\n/*\t---------------------- */\r\n\r\n\r\n/* \t¤ Misc --------------- */\r\n\r\n\r\n\r\n\r\n\r\n/*\t---------------------- */\r\n\r\n@media screen and (max-width:768px) { \r\n\r\n/* \t¤ Page Structure ----- */\r\ndiv.movieContainer {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n\r\n/* \t¤ Content & Media ---- */\r\narticle.movieThumb {\t\r\n\twidth: 90%;\r\n}\r\n\r\n}", ""]);
 
 	// exports
 
+
+/***/ },
+/* 454 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(455);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(449)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./02-header.css", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./02-header.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 455 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(448)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "header{\r\n    background: #bc0000;\r\n    padding: 0.5em;\r\n    font-family: \"Roboto\";\r\n    font-size: 1.5em;\r\n}\r\n\r\nheader div{\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    position: relative;\r\n}\r\n\r\nheader img{\r\n    width: 10%;\r\n    height: auto;\r\n    margin-right: 1em;\r\n}\r\n\r\n.site-navigation ul{\r\n    list-style: none;\r\n    padding: 0;\r\n    margin: 0;\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.site-navigation ul li{\r\n    margin-right: 1em;\r\n}\r\n\r\n.site-navigation ul li a{\r\n    text-decoration: none;\r\n    color: #fff;\r\n}\r\n\r\n.site-navigation ul ul{\r\n    background: #000;\r\n    font-size: 0.7em;\r\n}\r\n\r\n/*\r\n\r\n.site-navigation ul li a.current-overview{\r\n    border-bottom: 2px solid #fff;\r\n}\r\n\r\n.site-navigation ul ul{\r\n    width: 100%;\r\n    background: #000;\r\n    font-size: 0.6em;\r\n}\r\n\r\n.site-navigation ul ul li a{\r\n    color: rgba(255, 255, 255, 0.5);\r\n}\r\n*/", ""]);
+
+	// exports
+
+
+/***/ },
+/* 456 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(183);
+
+	var _redux = __webpack_require__(194);
+
+	var _index = __webpack_require__(307);
+
+	var _movie_details = __webpack_require__(443);
+
+	var _reactRouter = __webpack_require__(249);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // React
+
+
+	// Redux
+
+
+	// Actions
+
+
+	// Containers/Components
+
+
+	// React Router
+
+
+	var MovieOverviewPopular = function (_Component) {
+		_inherits(MovieOverviewPopular, _Component);
+
+		function MovieOverviewPopular() {
+			_classCallCheck(this, MovieOverviewPopular);
+
+			return _possibleConstructorReturn(this, (MovieOverviewPopular.__proto__ || Object.getPrototypeOf(MovieOverviewPopular)).apply(this, arguments));
+		}
+
+		_createClass(MovieOverviewPopular, [{
+			key: "componentWillReceiveProps",
+			value: function componentWillReceiveProps(nextProps) {
+				console.log(nextProps);
+				if (nextProps.params.categoryName === "nowPlaying") {
+					this.props.fetchNowPlayingMovies();
+				}
+
+				console.log(nextProps);
+				if (nextProps.params.categoryName === "topRated") {
+					this.props.this.props.fetchTopRatedMovies();
+				}
+			}
+		}, {
+			key: "componentWillMount",
+			value: function componentWillMount() {
+
+				this.props.fetchPopularMovies();
+				// this.props.fetchUpcomingMovies();
+				// this.props.fetchNowPlayingMovies();
+				// this.props.fetchTopRatedMovies();
+			}
+		}, {
+			key: "renderMovies",
+			value: function renderMovies(movieList) {
+
+				return _react2.default.createElement(
+					"article",
+					{ key: Math.random(), className: "movieThumb" },
+					movieList.backdrop_path === null ? _react2.default.createElement("img", { src: "../img/no_image.png" }) : _react2.default.createElement("img", { src: "https://image.tmdb.org/t/p/w500_and_h281_bestv2/" + movieList.backdrop_path }),
+					_react2.default.createElement(
+						"section",
+						{ className: "info" },
+						_react2.default.createElement(
+							"section",
+							{ className: "topInfo" },
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: "/movieDetails/" + movieList.id },
+								_react2.default.createElement(
+									"h2",
+									null,
+									movieList.title
+								)
+							),
+							_react2.default.createElement(
+								"h3",
+								null,
+								movieList.release_date
+							)
+						),
+						_react2.default.createElement(
+							"section",
+							{ className: "bottomInfo" },
+							_react2.default.createElement(
+								"h3",
+								null,
+								"#Votes: ",
+								movieList.vote_count
+							),
+							_react2.default.createElement(
+								"h3",
+								null,
+								"Average vote: ",
+								movieList.vote_average
+							)
+						)
+					)
+				);
+			}
+		}, {
+			key: "render",
+			value: function render() {
+
+				return _react2.default.createElement(
+					"div",
+					{ className: "fullPage centeringDiv" },
+					_react2.default.createElement(
+						"h1",
+						null,
+						"Popular Movies"
+					),
+					_react2.default.createElement(
+						"div",
+						{ className: "movieContainer" },
+						this.props.movies.map(this.renderMovies)
+					)
+				);
+			}
+		}]);
+
+		return MovieOverviewPopular;
+	}(_react.Component);
+
+	function mapStateToProps(state) {
+		return { movies: state.movies };
+	}
+
+	function mapDispatchToProps(dispatch) {
+		return (0, _redux.bindActionCreators)({ fetchPopularMovies: _index.fetchPopularMovies, fetchUpcomingMovies: _index.fetchUpcomingMovies, fetchNowPlayingMovies: _index.fetchNowPlayingMovies, fetchTopRatedMovies: _index.fetchTopRatedMovies }, dispatch);
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MovieOverviewPopular);
 
 /***/ }
 /******/ ]);

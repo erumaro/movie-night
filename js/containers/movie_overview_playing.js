@@ -6,10 +6,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 // Actions
-import { fetchPopularMovies } from "../actions/index.js";
-import { fetchUpcomingMovies } from "../actions/index.js";
 import { fetchNowPlayingMovies } from "../actions/index.js";
-import { fetchTopRatedMovies } from "../actions/index.js";
 
 // Containers/Components
 import { MovieDetails } from "./movie_details.js"
@@ -18,43 +15,10 @@ import { MovieDetails } from "./movie_details.js"
 import {Router, Route, Link, hashHistory } from 'react-router';
 
 
-class MovieOverview extends Component {
-		/*
-		constructor(props){
-		super(props)
+class MovieOverviewPlaying extends Component {
 
-		this.state = {
-			movieCat: "nowPlaying"
-		}
-	}
-	*/
-
-	componentWillReceiveProps(nextProps){
-		if(nextProps.params.categoryName === "nowPlaying"){
-			this.props.fetchNowPlayingMovies();
-		}
-
-		if(nextProps.params.categoryName === "topRated"){
-			this.props.this.props.fetchTopRatedMovies();
-		}
-	}
-
-	/*
-
-	componentDidMount(){
-		this.setState({movieCat: "reset"})
-	}
-
-	*/
-	
-	
 	componentWillMount() {
-		
-		this.props.fetchPopularMovies();
-		// this.props.fetchUpcomingMovies();
-		// this.props.fetchNowPlayingMovies();
-		// this.props.fetchTopRatedMovies();
-		
+		this.props.fetchNowPlayingMovies();
 	}
 	
 
@@ -85,17 +49,10 @@ class MovieOverview extends Component {
 	}
 
 	render(){
-/*
-		 if(this.props.movies[0]){
-			console.log("https://image.tmdb.org/t/p/w500_and_h281_bestv2/" + this.props.movies[1].backdrop_path)
-		}
-*/
-	
-
 
 		return (
 			<div className="fullPage centeringDiv">
-				<h1>Header Title</h1>
+				<h1>Movies Now Playing</h1>
 				
 				<div className="movieContainer">
 					{this.props.movies.map(this.renderMovies)}
@@ -113,11 +70,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-	return bindActionCreators ({fetchPopularMovies, fetchUpcomingMovies, fetchNowPlayingMovies, fetchTopRatedMovies}, dispatch);
+	return bindActionCreators ({fetchNowPlayingMovies}, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieOverview);
-
-
-
-//  asjdkasljd </Link>
+export default connect(mapStateToProps, mapDispatchToProps)(MovieOverviewPlaying);

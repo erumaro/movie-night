@@ -17,7 +17,7 @@ export default class Header extends Component {
                   </Link>
                 </li>
                 <li className="menu-item">
-                  <Link to='/movieOverview/nowPlaying'>
+                  <Link to='/movieOverview/playing'>
                     Now Playing
                   </Link>
                 </li>
