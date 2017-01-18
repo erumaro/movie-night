@@ -2,12 +2,13 @@
 	background-color: #7b1010;
 	color: white;
 	width: 100%;
-	min-height: 100%;
+	height: 100%;
 }
 
 #detail-container {
 	width: 100%;
 	background-color: #222;
+
 }
 #detail-container h1 {
 	text-align: left;
@@ -17,21 +18,44 @@
 #detail-container > section {
 	padding: 10px;
 }
-#detail-container img {width: 100%;}
-span + h2 {margin-top: 15px;}
 
-@media screen and (min-width:768px) {
+#detail-container img {width: 100%;}
+
+span#home {
+	color: white;
+}
+#detail-container section h2 {
+	margin: 20px 0 10px 0;
+
+}
+#detail-container section p {
+	margin: 0;
+
+}
+
+@media screen and (min-width:767px) {
 	#detail-container {
 		display: -webkit-flex;
 	    display: flex;
+	    height: 91.5vh;
  	}
+ 	#detail-container {
+		padding-top: 100px;
+		box-sizing: border-box;
+	}
  	#detail-container h1 {
  		margin: 50px 0 0 0;
+
  	}
 	
 	#detail-container > section,
 	#detail-container figure {
 		width: 40%;
+	}
+	#detail-container figure img {
+		width: 60%;
+		display: block;
+		margin: 0 auto;
 	}
 
 }
@@ -41,8 +65,9 @@ span + h2 {margin-top: 15px;}
 		width: 80%;
 		margin: 0 auto;
 		box-shadow: 0px 0px 40px black;
-					;
+					
 	}
+
 
 }
 
