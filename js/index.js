@@ -1,6 +1,8 @@
 // StyleSheets
+require("../css/normalize.css");
 require("../css/00-global.css");
 require("../css/01-movieoverview.css");
+require("../css/02-header.css");
 
 // React
 import React from 'react';
