@@ -17,19 +17,46 @@ import { MovieDetails } from "./movie_details.js"
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';
 
-// let category = this.props.params.menuCategory
 
 class MovieOverview extends Component {
+		/*
+		constructor(props){
+		super(props)
+
+		this.state = {
+			movieCat: "nowPlaying"
+		}
+	}
+	*/
+
+	componentWillReceiveProps(nextProps){
+		if(nextProps.params.categoryName === "nowPlaying"){
+			this.props.fetchNowPlayingMovies();
+		}
+
+		if(nextProps.params.categoryName === "topRated"){
+			this.props.this.props.fetchTopRatedMovies();
+		}
+	}
+
+	/*
+
+	componentDidMount(){
+		this.setState({movieCat: "reset"})
+	}
+
+	*/
+	
 	
 	componentWillMount() {
-		// this.props.fetchPopularMovies();
+		
+		this.props.fetchPopularMovies();
 		// this.props.fetchUpcomingMovies();
 		// this.props.fetchNowPlayingMovies();
-		this.props.fetchTopRatedMovies();
+		// this.props.fetchTopRatedMovies();
 		
-		// Hämta "Category" från Router test
-		// this.props.category();
 	}
+	
 
 	renderMovies(movieList){
 	
@@ -58,11 +85,14 @@ class MovieOverview extends Component {
 	}
 
 	render(){
-
-		/* if(this.props.movies[0]){
+/*
+		 if(this.props.movies[0]){
 			console.log("https://image.tmdb.org/t/p/w500_and_h281_bestv2/" + this.props.movies[1].backdrop_path)
-		} */
+		}
+*/
 	
+
+
 		return (
 			<div className="fullPage">
 				<h1>Header Title</h1>
