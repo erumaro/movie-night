@@ -51,9 +51,9 @@ class MovieDetails extends Component {
 						<p>
 							Lorem ipsum dolor sit amet, nemore impedit assueverit ut his, his nibh solum mnesarchum ex. Eum posse partem platonem cu, vel oportere scripserit ad. Ut eos electram abhorreant, per te rebum meliore blandit, vis choro evertitur consequuntur ex. Audire appareat his ne, ex eum rebum ridens sensibus. Altera hendrerit cu sea, his in detraxit theophrastus, affert civibus pro id.
 
-Nec ut dolor urbanitas, ut quodsi lobortis vituperata pro. Duo ferri erroribus hendrerit ne, at nostro viderer mel, et facete appetere mea. His ea integre expetenda, harum oblique vivendo ei mel, eos an dolor accusamus. Vel ut viderer iracundia, stet offendit id vel. Ceteros dissentiet et sea. Nullam eligendi ei quo, ea debet aperiri vix.
+							Nec ut dolor urbanitas, ut quodsi lobortis vituperata pro. Duo ferri erroribus hendrerit ne, at nostro viderer mel, et facete appetere mea. His ea integre expetenda, harum oblique vivendo ei mel, eos an dolor accusamus. Vel ut viderer iracundia, stet offendit id vel. Ceteros dissentiet et sea. Nullam eligendi ei quo, ea debet aperiri vix.
 
-Mea cu vivendo perfecto reformidans, ea illud fugit dicant vix, melius intellegam definitionem eum at. Ne laoreet probatus nominati mel. Errem salutandi no has, in verear molestie nec. No has hinc ullum officiis. Dicam quaestio complectitur mei te, habeo perfecto molestiae est no, vix ceteros dissentiunt an. Vim oratio nostrum scriptorem no.
+							Mea cu vivendo perfecto reformidans, ea illud fugit dicant vix, melius intellegam definitionem eum at. Ne laoreet probatus nominati mel. Errem salutandi no has, in verear molestie nec. No has hinc ullum officiis. Dicam quaestio complectitur mei te, habeo perfecto molestiae est no, vix ceteros dissentiunt an. Vim oratio nostrum scriptorem no.
 
 						</p>
 						<h2>Facts for geeks</h2>
