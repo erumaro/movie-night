@@ -27,44 +27,61 @@ class MovieDetails extends Component {
 	}
 
 	renderMovieDetails(){
+
 			
 			if(this.props.movieDetails[0]){
-				let releaseDate = this.props.movieDetails[0].release_date;
-				let genres = "";
 				let i = 0;
+				let j = 0;
+				let k = 0;
+				let releaseDate = this.props.movieDetails[0].release_date;
+				let year = this.props.movieDetails[0].release_date.substring(0,4);
+
+				let genres = "";
+				let productionCompanies = "";
+				let productionCountries = "";
+				
+
 				let genreArr =  this.props.movieDetails[0].genres;
+				let productionCompaniesArr = this.props.movieDetails[0].production_companies;
+				let productionCountriesArr = this.props.movieDetails[0].production_countries;
+
 				let genre = genreArr.forEach((genre) => {
 					i !== genreArr.length - 1 ? genres += (genre.name + ", ") : genres += genre.name;
 					i++;
 				}) 
+
+				let company = productionCompaniesArr.forEach((company) => {
+					j !== productionCompaniesArr.length - 1 ? productionCompanies += (company.name + ", ") : productionCompanies += company.name;
+					j++;
+				}) 
+
+				let country = productionCountriesArr.forEach((country) => {
+					k !== productionCountriesArr.length - 1 ? productionCountries += (country.name + ", ") : productionCountries += country.name;
+					k++;
+				}) 
 			return(
 			<div id="detail-wrapper">
 				<div id="detail-container">
-					<Link to={"/"}><img src="../img/arrow_back.png" /></Link>
+					{/*<Link to={"/"}><img src="../img/arrow_back.png" /></Link>*/}
 					<figure>
 						<img src={"https://image.tmdb.org/t/p/w500/" + this.props.movieDetails[0].poster_path}  alt="poster"/>
 					</figure>
 					<section>
-						<h1>{this.props.movieDetails[0].title}</h1>
+						<h1>{this.props.movieDetails[0].title + " (" + year + ")"}</h1>
 						<span>{genres}</span>
 						<h2>Overview</h2>
 						<p>
-							Lorem ipsum dolor sit amet, nemore impedit assueverit ut his, his nibh solum mnesarchum ex. Eum posse partem platonem cu, vel oportere scripserit ad. Ut eos electram abhorreant, per te rebum meliore blandit, vis choro evertitur consequuntur ex. Audire appareat his ne, ex eum rebum ridens sensibus. Altera hendrerit cu sea, his in detraxit theophrastus, affert civibus pro id.
-
-Nec ut dolor urbanitas, ut quodsi lobortis vituperata pro. Duo ferri erroribus hendrerit ne, at nostro viderer mel, et facete appetere mea. His ea integre expetenda, harum oblique vivendo ei mel, eos an dolor accusamus. Vel ut viderer iracundia, stet offendit id vel. Ceteros dissentiet et sea. Nullam eligendi ei quo, ea debet aperiri vix.
-
-Mea cu vivendo perfecto reformidans, ea illud fugit dicant vix, melius intellegam definitionem eum at. Ne laoreet probatus nominati mel. Errem salutandi no has, in verear molestie nec. No has hinc ullum officiis. Dicam quaestio complectitur mei te, habeo perfecto molestiae est no, vix ceteros dissentiunt an. Vim oratio nostrum scriptorem no.
-
+							{this.props.movieDetails[0].overview}
 						</p>
 						<h2>Facts for geeks</h2>
-						<p>Release: {releaseDate}</p>
-						<p>Vote Avg: {this.props.movieDetails[0].vote_average}</p>
-						<p>Vote Count: {this.props.movieDetails[0].vote_count}</p>
+						<p className="facts">Release Date: {releaseDate}</p>
+						<p className="facts">Countries: {productionCountries}</p>
+						<p className="facts">Production Companies: {productionCompanies}</p>
+						<p className="facts">Vote Avg: {this.props.movieDetails[0].vote_average}</p>
+						<p className="facts">Vote Count: {this.props.movieDetails[0].vote_count}</p>
 					</section>
 				</div>	
-			
 			</div>
-	
 			)
 		}
 		else {
@@ -81,11 +98,9 @@ Mea cu vivendo perfecto reformidans, ea illud fugit dicant vix, melius intellega
 		return (
 			<div className="fullPage">
 				<h1>Header Title</h1>
-				
 				<div className="movieContainer">
 					{this.renderMovieDetails()}
 				</div>
-	
 			</div>
 		)
 	}
