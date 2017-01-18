@@ -94,7 +94,7 @@ class MovieOverview extends Component {
 
 
 		return (
-			<div className="fullPage">
+			<div className="fullPage centeringDiv">
 				<h1>Header Title</h1>
 				
 				<div className="movieContainer">
