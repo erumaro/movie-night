@@ -22,8 +22,20 @@ import {Router, Route, IndexRoute, Link, IndexLink, IndexRedirect, hashHistory} 
 
 // Components / Containers
 import App from './components/app.js'
-import MovieOverview from './containers/movie_overview.js'
-import TvOverview from './containers/tv_overview.js'
+
+  // Movies 
+import MovieOverviewPopular from './containers/movie_overview_popular.js'
+import MovieOverviewUpcoming from './containers/movie_overview_upcoming.js'
+import MovieOverviewPlaying from './containers/movie_overview_playing.js'
+import MovieOverviewToprated from './containers/movie_overview_toprated.js'
+
+  // TV-series 
+import TvOverviewPopular from './containers/tv_overview_popular.js'
+import TvOverviewUpcoming from './containers/tv_overview_upcoming.js'
+import TvOverviewPlaying from './containers/tv_overview_playing.js'
+import TvOverviewToprated from './containers/tv_overview_toprated.js'
+
+  // Movie Details
 import MovieDetails from './containers/movie_details.js'
 
 // Consts
@@ -36,9 +48,15 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <Router history={hashHistory}>
       <Route path="/" component={App}>
-          <IndexRoute component={MovieOverview} />
-          <Route path="movieOverview(/:category)" component={MovieOverview} />
-          <Route path="tvOverview(/:category)" component={TvOverview} />
+          <IndexRoute component={MovieOverviewPopular} />
+          <Route path="movieOverview/popular" component={MovieOverviewPopular} />
+          <Route path="movieOverview/upcoming" component={MovieOverviewUpcoming} />
+          <Route path="movieOverview/playing" component={MovieOverviewPlaying} />
+          <Route path="movieOverview/toprated" component={MovieOverviewToprated} />
+          <Route path="tvOverview/popular" component={TvOverviewPopular} />
+          <Route path="tvOverview/upcoming" component={TvOverviewUpcoming} />
+          <Route path="tvOverview/playing" component={TvOverviewPlaying} />
+          <Route path="tvOverview/toprated" component={TvOverviewToprated} />
           <Route path="movieDetails/:id" component={MovieDetails} />
       </Route>
     </Router>

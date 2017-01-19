@@ -15,7 +15,10 @@ export function fetchPopularMovies() {
   	method: "GET",
   	headers: {'Content-Type': 'application/x-www-form-urlencoded'},
   	url: "movie/popular?api_key=" + API_KEY + "&language=se&page=1",
-  	baseURL: "https://api.themoviedb.org/3"
+  	baseURL: "https://api.themoviedb.org/3",
+  	  params: {
+    ID: 12345
+  }
 	})
 
 	return {

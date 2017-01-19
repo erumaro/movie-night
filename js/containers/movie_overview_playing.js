@@ -6,31 +6,21 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 // Actions
-import { fetchPopularMovies } from "../actions/index.js";
-import { fetchUpcomingMovies } from "../actions/index.js";
 import { fetchNowPlayingMovies } from "../actions/index.js";
-import { fetchTopRatedMovies } from "../actions/index.js";
 
 // Containers/Components
 import { MovieDetails } from "./movie_details.js"
-import SearchBar from './search_bar.js';
 
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';
 
-// let category = this.props.params.menuCategory
 
-class MovieOverview extends Component {
-	
+class MovieOverviewPlaying extends Component {
+
 	componentWillMount() {
-		// this.props.fetchPopularMovies();
-		// this.props.fetchUpcomingMovies();
-		// this.props.fetchNowPlayingMovies();
-		this.props.fetchTopRatedMovies();
-		
-		// Hämta "Category" från Router test
-		// this.props.category();
+		this.props.fetchNowPlayingMovies();
 	}
+	
 
 	renderMovies(movieList){
 	
@@ -60,14 +50,9 @@ class MovieOverview extends Component {
 
 	render(){
 
-		/* if(this.props.movies[0]){
-			console.log("https://image.tmdb.org/t/p/w500_and_h281_bestv2/" + this.props.movies[1].backdrop_path)
-		} */
-	
 		return (
 			<div className="fullPage centeringDiv">
-				<SearchBar />
-				<h1>Header Title</h1>
+				<h1>Movies Now Playing</h1>
 				
 				<div className="movieContainer">
 					{this.props.movies.map(this.renderMovies)}
@@ -85,11 +70,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-	return bindActionCreators ({fetchPopularMovies, fetchUpcomingMovies, fetchNowPlayingMovies, fetchTopRatedMovies}, dispatch);
+	return bindActionCreators ({fetchNowPlayingMovies}, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieOverview);
-
-
-
-//  asjdkasljd </Link>
+export default connect(mapStateToProps, mapDispatchToProps)(MovieOverviewPlaying);
