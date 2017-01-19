@@ -13,6 +13,7 @@ import { fetchTopRatedMovies } from "../actions/index.js";
 
 // Containers/Components
 import { MovieDetails } from "./movie_details.js"
+import SearchBar from './search_bar.js';
 
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';
@@ -65,6 +66,7 @@ class MovieOverview extends Component {
 	
 		return (
 			<div className="fullPage centeringDiv">
+				<SearchBar />
 				<h1>Header Title</h1>
 				
 				<div className="movieContainer">
