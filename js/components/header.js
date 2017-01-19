@@ -9,7 +9,13 @@ export default class Header extends Component {
         <img src="../img/logo.PNG" />
         <nav className="site-navigation">
           <ul>
-            <li><a className="current-overview" href="#">Film</a></li>
+              <li>
+                <Link to="/movieOverview/#">
+                  Film
+                </Link>
+              </li>
+              <div className="sub-menu">
+              <div className="centeringDiv">
               <ul>
                 <li className="menu-item">
                   <Link to="/movieOverview/popular">
@@ -32,7 +38,13 @@ export default class Header extends Component {
                   </Link>
                 </li>
               </ul>
-            <li><a href="#">TV</a></li>
+              </div>
+            </div>
+              <li>
+                <Link to="/tvOverview/#">
+                  TV
+                </Link>
+              </li>
               <ul>
                 <li className="menu-item">
                   <Link to="/tvOverview/popular">
