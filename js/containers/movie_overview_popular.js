@@ -11,6 +11,7 @@ import { fetchPopularMovies } from "../actions/index.js";
 // Containers/Components
 import { MovieDetails } from "./movie_details.js"
 import SearchBar from "./search_bar"
+
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';
 
