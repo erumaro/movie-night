@@ -15,18 +15,19 @@ import {Router, Route, Link, hashHistory } from 'react-router';
 // let category = this.props.params.menuCategory
 
 class SearchBar extends Component {
-	componentDidMount() {
+
+	/*componentDidMount() {
 		let initialHeading = document.getElementsByTagName("h1")[0].innerHTML;
-	}
-	onInputChange(term, initialHeading) {
+	}*/
+
+	onInputChange(term) {
 		
 		let heading = document.getElementsByTagName("h1")[0];
 
 		this.props.fetchSearchResults(term);
 		
 		if(term.length === 0) {
-			heading.innerHTML = initialHeading
-			location.reload();
+			location.reload();//Fullösning!!! Ska hitta på något bättre i mån av tid :)
 		}
 		else {
 			heading.innerHTML = "Search Results"
@@ -39,7 +40,7 @@ class SearchBar extends Component {
 				<input 
 					type="text" 
 					placeholder="Search Movies"
-					onChange={e => this.onInputChange(e.target.value, this.initialHeading)} 
+					onChange={e => this.onInputChange(e.target.value)} 
 					/>
 				
 			</div>
