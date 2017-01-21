@@ -58,16 +58,15 @@ div.movieContainer {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	/* max-width: 1200px; */
 }
 
-article.movieThumb {	
+article.movieThumb {
 	width: 40%;
 	border: 1px solid #666;
 	background-color: #FFF;
-	margin-left: 50px;
-	margin-bottom: 50px;
-	box-shadow: 0px 2px 10px 0px #666;
-	
+	margin: 3% auto;
+	box-shadow: 0px 4px 10px 0px #666;
 }
 
 
@@ -78,7 +77,10 @@ article.movieThumb {
 
 /* Header Category */
 .fullPage h1 {
-	margin-left: 50px;
+	margin-left: 6%;
+	margin-bottom: 0px;
+	padding-top: 3%;
+	padding-bottom: 0px;
 }
 
 
@@ -99,6 +101,12 @@ article.movieThumb img.icons {
 	height: 12px;
 	border-bottom: none;
 }
+
+.movieThumb a {
+	text-decoration: none;
+}
+
+
 
 
 

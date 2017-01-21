@@ -3,14 +3,14 @@ body {
 }
 
 .centeringDiv{
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+	width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .fullPage{
-    background: #efefef;
-    box-shadow: 0 1.5em 4em rgba(0, 0, 0, 1);
+  background: #efefef;
+  box-shadow: 0 1.5em 4em rgba(0, 0, 0, 1);
 	padding: 0;
 }
 

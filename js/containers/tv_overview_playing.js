@@ -39,7 +39,7 @@ class TvOverviewPlaying extends Component {
 					</section>
 					
 					<section className="bottomInfo">
-						<h3><font color="#cc0000">&#x2764; </font> {tvList.vote_count}</h3>
+						<h3><font color="#cc0000">&#x2764;</font> {tvList.vote_count}</h3>
 						<h3><font color="#000">&#x271A;</font> {tvList.vote_average}</h3>
 					</section>
 	
