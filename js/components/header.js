@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-
+import SearchBar from '../containers/search_bar';
 export default class Header extends Component {
   render(){
     return(
@@ -70,6 +70,7 @@ export default class Header extends Component {
           </ul>
         </nav>
         </div>
+        
       </header>
     );
   }

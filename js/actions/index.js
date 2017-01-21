@@ -87,6 +87,21 @@ export function fetchMovieDetails(movieId){
 		payload: request
 	};
 }
+// Hämtar sökresultat
+export function fetchSearchResults(term){
+	term === undefined ? term = "" : term = term;
+	const request = axios({
+		method: "GET",
+  	headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+  	url: "/search/movie?api_key=" + API_KEY + "&query=" + term,
+  	baseURL: "https://api.themoviedb.org/3"
+	})
+
+	return {
+		type: "FETCH_SEARCH_RESULTS",
+		payload: request
+	};
+}
 
 // --- TV ------------------------------------------------------------
 

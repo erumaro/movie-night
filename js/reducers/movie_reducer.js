@@ -12,6 +12,10 @@ export default function (state = [], action) {
 	case "FETCH_TOPRATED_MOVIES":
 		state.splice(0, state.length)
 		return state.concat(action.payload.data.results);
+	case "FETCH_SEARCH_RESULTS":
+		state.splice(0, state.length)
+		return state.concat(action.payload.data.results);
 	}
+
 		return state;
 }

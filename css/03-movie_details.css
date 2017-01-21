@@ -38,11 +38,10 @@ span#home {
 		display: -webkit-flex;
 	    display: flex;
 	    height: 91.5vh;
- 	}
- 	#detail-container {
-		padding-top: 100px;
+	    padding-top: 100px;
 		box-sizing: border-box;
-	}
+ 	}
+ 	
  	#detail-container h1 {
  		margin: 50px 0 0 0;
 
@@ -61,15 +60,28 @@ span#home {
 }
 
 @media screen and (min-width:1079px) {
+	#detail-container h1 {
+		font-size: 26px;
+	}
+	#detail-container h2 {
+		margin-top: 40px !important;
+	}
 	#detail-container {
 		width: 80%;
 		margin: 0 auto;
-		box-shadow: 0px 0px 40px black;
+		box-shadow: 0 1.5em 4em rgba(0, 0, 0, 1);
 					
 	}
 	#detail-wrapper {
 		background-color: #7b1010;
 	}
+
+}
+@media screen and (min-width:1919px) {
+	#detail-container h1 {
+		font-size: 40px;
+	}
+	
 
 }
 
