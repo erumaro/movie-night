@@ -10,6 +10,7 @@ import { fetchUpcomingMovies } from "../actions/index.js";
 
 // Containers/Components
 import { MovieDetails } from "./movie_details.js"
+import SearchBar from "./search_bar"
 
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';
@@ -51,13 +52,16 @@ class MovieOverviewUpcoming extends Component {
 	render(){
 
 		return (
-			<div className="fullPage centeringDiv">
-				<h1>Upcoming Movies this month</h1>
-				
-				<div className="movieContainer">
-					{this.props.movies.map(this.renderMovies)}
+			<div>
+			<SearchBar />
+				<div className="fullPage centeringDiv">
+					<h1>Upcoming Movies this month</h1>
+					
+					<div className="movieContainer">
+						{this.props.movies.map(this.renderMovies)}
+					</div>
+		
 				</div>
-	
 			</div>
 		)
 	}

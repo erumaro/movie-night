@@ -87,9 +87,8 @@ export function fetchMovieDetails(movieId){
 		payload: request
 	};
 }
-// Hämtar sökresultat
+// Hämtar sökresultat film
 export function fetchSearchResults(term){
-	term === undefined ? term = "" : term = term;
 	const request = axios({
 		method: "GET",
   	headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -177,6 +176,20 @@ export function fetchTvDetails(){
 
 	return {
 		type: "FETCH_TV_DETAILS",
+		payload: request
+	};
+}
+//Hämtar sökresultat tv
+export function fetchSearchResultsTv(term){
+	const request = axios({
+		method: "GET",
+  	headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+  	url: "/search/tv?api_key=" + API_KEY + "&query=" + term,
+  	baseURL: "https://api.themoviedb.org/3"
+	})
+
+	return {
+		type: "FETCH_SEARCH_RESULTS_TV",
 		payload: request
 	};
 }

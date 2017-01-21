@@ -66,7 +66,7 @@ class MovieOverview extends Component {
 	
 		return (
 			<div className="fullPage centeringDiv">
-				
+				<SearchBar />
 				<h1>Header Title</h1>
 				
 				<div className="movieContainer">
