@@ -1,56 +1,63 @@
 // React
 import React, { Component } from "react";
 
+// Redux
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
+// Actions
+import { fetchSearchResults } from "../actions/index.js";
+
+
+// React Router
+import {Router, Route, Link, hashHistory } from 'react-router';
+
+// let category = this.props.params.menuCategory
+
 class SearchBar extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			term: ""
-		};
+
+	/*componentDidMount() {
+		let initialHeading = document.getElementsByTagName("h1")[0].innerHTML;
+	}*/
+
+	onInputChange(term) {
+		
+		let heading = document.getElementsByTagName("h1")[0];
+
+		this.props.fetchSearchResults(term);
+		
+		if(term.length === 0) {
+			location.reload();//Fullösning!!! Ska hitta på något bättre i mån av tid :)
+		}
+		else {
+			heading.innerHTML = "Search Results"
+		}
 	}
-	handleChange(e) {
-		let selected = e.target.id;
-		console.log(selected)
-	}
+	
 	render(){
 		return (
-			<div id="search-bar">
-				<form>
-					<span>TV</span>
-				  <input 
-				  	onChange={e => this.handleChange(e)}
-				  	id="tv" 
-				  	type="radio" 
-				  	name="select" 
-				  	value="tv"
-				  	defaultChecked
-				  	 />
-				  	 <span>MOVIES</span>
-				  <input 
-					  onChange={e => this.handleChange(e)} 
-					  id="movie" 
-					  type="radio" 
-					  name="select" 
-					  value="movies" />
-				</form>
+			<div id="search-bar-wrapper">
 				<input 
-					value={this.state.term}
-					onChange={e => this.onInputChange(e.target.value)} />
-				<div id="search-results">
-				</div>
+					type="text" 
+					placeholder="Search Movies"
+					onChange={e => this.onInputChange(e.target.value)} 
+					/>
+				
 			</div>
-		);
+		)
 	}
-	onInputChange(term) {
-		this.setState({term});
-		//this.props.onSearchTermChange(term);
-		console.log(this.state.term);
-	}
-
 }
 
 
-export default SearchBar;
+function mapStateToProps(state){
+	return { movies: state.movies };
+}
+
+function mapDispatchToProps(dispatch){
+	return bindActionCreators ({fetchSearchResults}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
 
 
 

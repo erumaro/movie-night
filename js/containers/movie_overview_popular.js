@@ -10,7 +10,7 @@ import { fetchPopularMovies } from "../actions/index.js";
 
 // Containers/Components
 import { MovieDetails } from "./movie_details.js"
-
+import SearchBar from "./search_bar"
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';
 
@@ -51,13 +51,17 @@ class MovieOverviewPopular extends Component {
 	render(){
 
 		return (
-			<div className="fullPage centeringDiv">
-				<h1>Popular Movies</h1>
+			<div>
+			<SearchBar />
+				<div className="fullPage centeringDiv">
 				
-				<div className="movieContainer">
-					{this.props.movies.map(this.renderMovies)}
+					<h1>Popular Movies</h1>
+					
+					<div className="movieContainer">
+						{this.props.movies.map(this.renderMovies)}
+					</div>
+		
 				</div>
-	
 			</div>
 		)
 	}
