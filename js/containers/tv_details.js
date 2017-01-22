@@ -41,8 +41,7 @@ class TvDetails extends Component {
 
 			let genreArr =  this.props.tvDetails[0].genres;
 			let productionCompaniesArr = this.props.tvDetails[0].production_companies;
-			//let productionCountriesArr = this.props.tvDetails[0].original_country;
-
+			
 			let genre = genreArr.forEach((genre) => {
 				i !== genreArr.length - 1 ? genres += (genre.name + ", ") : genres += genre.name;
 				i++;
@@ -52,11 +51,7 @@ class TvDetails extends Component {
 				j !== productionCompaniesArr.length - 1 ? productionCompanies += (company.name + ", ") : productionCompanies += company.name;
 				j++;
 			}) 
-
-			/*let country = productionCountriesArr.forEach((country) => {
-				k !== productionCountriesArr.length - 1 ? productionCountries += (country.name + ", ") : productionCountries += country.name;
-				k++;
-			}) */
+	
 		return(
 		<div id="detail-wrapper">
 			<div id="detail-container">
@@ -65,15 +60,15 @@ class TvDetails extends Component {
 					<img src={"https://image.tmdb.org/t/p/w500/" + this.props.tvDetails[0].poster_path}  alt="poster"/>
 				</figure>
 				<section>
-					<h1>{this.props.tvDetails[0].title + " (" + year + ")"}</h1>
+					<h1>{this.props.tvDetails[0].name  + " (" + year + ")"}</h1>
 					<span>{genres}</span>
 					<h2>Overview</h2>
 					<p>
 						{this.props.tvDetails[0].overview}
 					</p>
 					<h2>Facts for geeks</h2>
-					<p className="facts">Release Date: {releaseDate}</p>
-					<p className="facts">Countries: {productionCountries}</p>
+					<p className="facts">Air Date: {releaseDate}</p>
+					<p className="facts">Seasons: {this.props.tvDetails[0].number_of_seasons}</p>
 					<p className="facts">Production Companies: {productionCompanies}</p>
 					<p className="facts">Vote Avg: {this.props.tvDetails[0].vote_average}</p>
 					<p className="facts">Vote Count: {this.props.tvDetails[0].vote_count}</p>
