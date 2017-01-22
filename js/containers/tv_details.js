@@ -6,11 +6,14 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 // Actions
-import { fetchMovieDetails } from "../actions/index.js";
+import { fetchTvDetails } from "../actions/index.js";
 
 
 // Containers/Components
-import TvOverview from "./tv_overview";
+import TvOverviewPopular from '../containers/tv_overview_popular.js'
+import TvOverviewUpcoming from '../containers/tv_overview_upcoming.js'
+import TvOverviewPlaying from '../containers/tv_overview_playing.js'
+import TvOverviewToprated from '../containers/tv_overview_toprated.js'
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';
 
@@ -18,22 +21,71 @@ import {Router, Route, Link, hashHistory } from 'react-router';
 class TvDetails extends Component {
 	
 	componentWillMount() {
-		// this.props.fetchPopularMovies();
-		// this.props.fetchUpcomingMovies();
-		// this.props.fetchNowPlayingMovies();
-		//this.props.fetchTopRatedMovies();
-		this.props.fetchTvDetails(this.props.params.tvId);
+		this.props.fetchTvDetails(this.props.params.id);
 
 	}
 
-	renderMovieDetails(){
-	
-			return(
+	renderTvDetails(){
+		
+		if(this.props.tvDetails[0]){
+			let i = 0;
+			let j = 0;
+			let k = 0;
+			let releaseDate = this.props.tvDetails[0].first_air_date;
+			let year = this.props.tvDetails[0].first_air_date.substring(0,4);
+
+			let genres = "";
+			let productionCompanies = "";
+			let productionCountries = "";
 			
-			<div>Tv Details</div>
-	
-			)
+
+			let genreArr =  this.props.tvDetails[0].genres;
+			let productionCompaniesArr = this.props.tvDetails[0].production_companies;
+			//let productionCountriesArr = this.props.tvDetails[0].original_country;
+
+			let genre = genreArr.forEach((genre) => {
+				i !== genreArr.length - 1 ? genres += (genre.name + ", ") : genres += genre.name;
+				i++;
+			}) 
+
+			let company = productionCompaniesArr.forEach((company) => {
+				j !== productionCompaniesArr.length - 1 ? productionCompanies += (company.name + ", ") : productionCompanies += company.name;
+				j++;
+			}) 
+
+			/*let country = productionCountriesArr.forEach((country) => {
+				k !== productionCountriesArr.length - 1 ? productionCountries += (country.name + ", ") : productionCountries += country.name;
+				k++;
+			}) */
+		return(
+		<div id="detail-wrapper">
+			<div id="detail-container">
+				{/*<Link to={"/"}><img src="../img/arrow_back.png" /></Link>*/}
+				<figure>
+					<img src={"https://image.tmdb.org/t/p/w500/" + this.props.tvDetails[0].poster_path}  alt="poster"/>
+				</figure>
+				<section>
+					<h1>{this.props.tvDetails[0].title + " (" + year + ")"}</h1>
+					<span>{genres}</span>
+					<h2>Overview</h2>
+					<p>
+						{this.props.tvDetails[0].overview}
+					</p>
+					<h2>Facts for geeks</h2>
+					<p className="facts">Release Date: {releaseDate}</p>
+					<p className="facts">Countries: {productionCountries}</p>
+					<p className="facts">Production Companies: {productionCompanies}</p>
+					<p className="facts">Vote Avg: {this.props.tvDetails[0].vote_average}</p>
+					<p className="facts">Vote Count: {this.props.tvDetails[0].vote_count}</p>
+				</section>
+			</div>	
+		</div>
+		)
 	}
+	else {
+		<div>Loading movies...</div>
+	}
+}
 
 	render(){
 
@@ -43,12 +95,9 @@ class TvDetails extends Component {
 	
 		return (
 			<div className="fullPage">
-				<h1>Header Title</h1>
-				
 				<div className="movieContainer">
-					{this.renderTvDetails.bind(this)}
+					{this.renderTvDetails()}
 				</div>
-	
 			</div>
 		)
 	}
@@ -57,7 +106,7 @@ class TvDetails extends Component {
 
 
 function mapStateToProps(state){
-	return { movieDetails: state.tvDetails };
+	return { tvDetails: state.tvDetails };
 }
 
 function mapDispatchToProps(dispatch){

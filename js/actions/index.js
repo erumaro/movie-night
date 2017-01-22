@@ -166,11 +166,11 @@ export function fetchTopRatedTV(){
 }
 
 // Hämtar detaljer för tv serier
-export function fetchTvDetails(){
+export function fetchTvDetails(tvId){
 	const request = axios({
   	method: "GET",
   	headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-  	url: "/tv/42?api_key=" + API_KEY + "&language=se&page=1",
+  	url: "/tv/" + tvId + "?api_key=" + API_KEY + "&language=en-US",
   	baseURL: "https://api.themoviedb.org/3"
 	})
 
@@ -179,6 +179,7 @@ export function fetchTvDetails(){
 		payload: request
 	};
 }
+
 //Hämtar sökresultat tv
 export function fetchSearchResultsTv(term){
 	const request = axios({
@@ -193,3 +194,6 @@ export function fetchSearchResultsTv(term){
 		payload: request
 	};
 }
+
+
+

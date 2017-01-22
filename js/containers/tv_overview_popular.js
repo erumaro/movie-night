@@ -9,7 +9,7 @@ import { bindActionCreators } from "redux";
 import { fetchPopularTV } from "../actions/index.js";
 
 // Containers/Components
-// import { MovieDetails } from "./movie_details.js"
+import { TvDetails } from "./tv_details.js"
 import SearchBarTv from "./search_bar_tv"
 
 // React Router

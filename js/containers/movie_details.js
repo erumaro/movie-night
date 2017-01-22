@@ -22,10 +22,6 @@ import {Router, Route, Link, hashHistory } from 'react-router';
 class MovieDetails extends Component {
 	
 	componentWillMount() {
-		// this.props.fetchPopularMovies();
-		// this.props.fetchUpcomingMovies();
-		// this.props.fetchNowPlayingMovies();
-		//this.props.fetchTopRatedMovies();
 		this.props.fetchMovieDetails(this.props.params.id);
 
 	}
@@ -101,7 +97,6 @@ class MovieDetails extends Component {
 	
 		return (
 			<div className="fullPage">
-				<h1>Header Title</h1>
 				<div className="movieContainer">
 					{this.renderMovieDetails()}
 				</div>

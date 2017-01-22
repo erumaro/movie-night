@@ -11,6 +11,7 @@ import { fetchPopularMovies } from "../actions/index.js";
 // Containers/Components
 import { MovieDetails } from "./movie_details.js"
 import SearchBar from "./search_bar"
+
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';
 
@@ -18,7 +19,6 @@ import {Router, Route, Link, hashHistory } from 'react-router';
 class MovieOverviewPopular extends Component {
 
 	componentWillMount() {
-		
 		this.props.fetchPopularMovies();
 	}
 	
@@ -29,7 +29,7 @@ class MovieOverviewPopular extends Component {
 			
 			<article key={Math.random()} className="movieThumb">
 			
-				{movieList.backdrop_path === null ? <img src="../img/no_image.png"></img> : <img src={"https://image.tmdb.org/t/p/w500_and_h281_bestv2/" + movieList.backdrop_path}></img>}
+				<Link to={`/movieDetails/${movieList.id}`}>{movieList.backdrop_path === null ? <img src="../img/no_image.png"></img> : <img src={"https://image.tmdb.org/t/p/w500_and_h281_bestv2/" + movieList.backdrop_path}></img>}</Link>
 
 				<section className="info">
 					
@@ -39,7 +39,7 @@ class MovieOverviewPopular extends Component {
 					</section>
 					
 					<section className="bottomInfo">
-						<h3>#Votes: {movieList.vote_count}</h3>
+						<h3><font color="#cc0000">&#x2764;</font> {movieList.vote_count}</h3>
 						<h3>Average vote: {movieList.vote_average}</h3>
 					</section>
 	
