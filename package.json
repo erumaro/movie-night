@@ -4,7 +4,7 @@
   "description": "MV* Unit Testing",
   "main": "webpack.config.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot",
+    "dev": "webpack-dev-server --inline --hot --progress --colors",
     "wp": "webpack --progress --colors",
     "build": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
     "stats": "webpack --json > stats.json"

@@ -1,4 +1,4 @@
-// React
+		// React
 import React, { Component } from "react";
 
 // Redux
@@ -7,10 +7,6 @@ import { bindActionCreators } from "redux";
 
 // Actions
 import { fetchTopRatedMovies } from "../actions/index.js";
-
-// Containers/Components
-import { MovieDetails } from "./movie_details.js"
-
 
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';

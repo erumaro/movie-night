@@ -29,7 +29,7 @@ class TvOverviewPopular extends Component {
 			
 			<article key={Math.random()} className="movieThumb">
 			
-				{tvList.backdrop_path === null ? <img src="../img/no_image.png"></img> : <img src={"https://image.tmdb.org/t/p/w500_and_h281_bestv2/" + tvList.backdrop_path}></img>}
+				<Link to={`/TvDetails/${tvList.id}`}>{tvList.backdrop_path === null ? <img src="../img/no_image.png"></img> : <img src={"https://image.tmdb.org/t/p/w500_and_h281_bestv2/" + tvList.backdrop_path}></img>}</Link>
 
 				<section className="info">
 					

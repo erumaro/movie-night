@@ -3,6 +3,8 @@ require("../css/normalize.css");
 require("../css/00-global.css");
 require("../css/01-movieoverview.css");
 require("../css/02-header.css");
+require("../css/03-movie_details.css");
+// require("../css/04-search_bar.css");
 
 // React
 import React from 'react';
