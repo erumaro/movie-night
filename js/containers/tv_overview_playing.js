@@ -9,7 +9,8 @@ import { bindActionCreators } from "redux";
 import { fetchPlayingTV } from "../actions/index.js";
 
 // Containers/Components
-// import { MovieDetails } from "./movie_details.js"
+import { TvDetails } from "./tv_details.js"
+import SearchBarTv from "./search_bar_tv"
 
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';
@@ -52,13 +53,16 @@ class TvOverviewPlaying extends Component {
 	render(){
 
 		return (
-			<div className="fullPage centeringDiv">
-				<h1>TV series Airing today</h1>
-				
-				<div className="movieContainer">
-					{this.props.tv.map(this.renderTv)}
+			<div>
+			<SearchBarTv />
+				<div className="fullPage centeringDiv">
+					<h1>TV series Airing today</h1>
+					
+					<div className="movieContainer">
+						{this.props.tv.map(this.renderTv)}
+					</div>
+		
 				</div>
-	
 			</div>
 		)
 	}

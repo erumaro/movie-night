@@ -8,6 +8,10 @@ import { bindActionCreators } from "redux";
 // Actions
 import { fetchTopRatedMovies } from "../actions/index.js";
 
+// Containers/Components
+import { MovieDetails } from "./movie_details.js"
+import SearchBar from "./search_bar"
+
 // React Router
 import {Router, Route, Link, hashHistory } from 'react-router';
 
@@ -48,15 +52,18 @@ class MovieOverviewToprated extends Component {
 	render(){
 
 		return (
-			<div className="fullPage centeringDiv">
+			<div>
+			<SearchBar />
+				<div className="fullPage centeringDiv">
 
-				<h1>Top Rated Movies</h1>
+					<h1>Top Rated Movies</h1>
 
-				
-				<div className="movieContainer">
-					{this.props.movies.map(this.renderMovies)}
+					
+					<div className="movieContainer">
+						{this.props.movies.map(this.renderMovies)}
+					</div>
+		
 				</div>
-	
 			</div>
 		)
 	}

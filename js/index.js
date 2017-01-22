@@ -37,9 +37,9 @@ import TvOverviewUpcoming from './containers/tv_overview_upcoming.js'
 import TvOverviewPlaying from './containers/tv_overview_playing.js'
 import TvOverviewToprated from './containers/tv_overview_toprated.js'
 
-  // Movie Details
+  // Movie/tv Details
 import MovieDetails from './containers/movie_details.js'
-
+import TvDetails from './containers/tv_details.js'
 // Consts
 const logger = createLogger();
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise, logger)(createStore);
@@ -60,6 +60,7 @@ ReactDOM.render(
           <Route path="tvOverview/playing" component={TvOverviewPlaying} />
           <Route path="tvOverview/toprated" component={TvOverviewToprated} />
           <Route path="movieDetails/:id" component={MovieDetails} />
+          <Route path="tvDetails/:id" component={TvDetails} />
       </Route>
     </Router>
 	</Provider>,
