@@ -8,7 +8,8 @@
     "wp": "webpack --progress --colors",
     "build": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
     "stats": "webpack --json > stats.json",
-    "test": "jest"
+    "test": "jest --verbose",
+    "test-watch": "jest --verbose --watch"
   },
   "repository": {
     "type": "git",

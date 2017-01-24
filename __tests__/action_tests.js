@@ -1,7 +1,7 @@
 import * as actions from '../js/actions/index.js';
 
-describe('actions', () => {
-  it('should create an action to return popular movies', () => {
+describe('Movie action tests', () => {
+  it('should call popular movie action', () => {
     
     const expectedAction = {
       type: 'FETCH_POPULAR_MOVIES',
@@ -10,7 +10,7 @@ describe('actions', () => {
     expect(actions.fetchPopularMovies('FETCH_POPULAR_MOVIES')).toEqual(expectedAction)
   })
 
-    it('should create an action to return upcoming movies', () => {
+    it('should call upcoming movie action', () => {
     
     const expectedAction = {
       type: 'FETCH_UPCOMING_MOVIES',
@@ -19,7 +19,7 @@ describe('actions', () => {
     expect(actions.fetchUpcomingMovies('FETCH_UPCOMING_MOVIES')).toEqual(expectedAction)
   })
 
-  it('should create an action to return now playing movies', () => {
+  it('should call playing movie action', () => {
     
     const expectedAction = {
       type: 'FETCH_PLAYING_MOVIES',
@@ -28,7 +28,7 @@ describe('actions', () => {
     expect(actions.fetchNowPlayingMovies('FETCH_PLAYING_MOVIES')).toEqual(expectedAction)
   })
   
-    it('should create an action to return top rated movies', () => {
+    it('should call top rated movie action', () => {
     
     const expectedAction = {
       type: 'FETCH_TOPRATED_MOVIES',
@@ -37,7 +37,7 @@ describe('actions', () => {
     expect(actions.fetchTopRatedMovies('FETCH_TOPRATED_MOVIES')).toEqual(expectedAction)
   })
 
-  it('should create an action to return movie details', () => {
+  it('should call movie details action', () => {
     
     const expectedAction = {
       type: 'FETCH_MOVIE_DETAILS',
@@ -46,7 +46,7 @@ describe('actions', () => {
     expect(actions.fetchMovieDetails('FETCH_MOVIE_DETAILS')).toEqual(expectedAction)
   })
   
-    it('should create an action to return search results', () => {
+    it('should call search movie action', () => {
     
     const expectedAction = {
       type: 'FETCH_SEARCH_RESULTS',
