@@ -12,7 +12,6 @@ module.exports = {
   
     // Babel / React Loader
     {
-      
       test: [/\.js$/, /\.es6$/],
       exclude: /node_modules/,
       loader: 'babel-loader',
