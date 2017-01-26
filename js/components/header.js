@@ -3,12 +3,16 @@ import { Link } from 'react-router';
 import SubMenu from './sub_menu';
 import SearchBar from '../containers/search_bar';
 export default class Header extends Component {
-  showSub(){
-    let sm = document.querySelector('.sub-menu');
-    sm.style.display = "flex";
-  }
-  
+    constructor(){
+        super();
+        this.state = {
+            toggleMovie: false,
+            toggleTv: false
+        };
+    }
   render(){
+    const catMovie = document.getElementById('cat-movie');
+    const catTv = document.getElementById('cat-tv');
     return(
       <header>
         <div className="centeringDiv">
@@ -18,7 +22,7 @@ export default class Header extends Component {
         <nav className="site-navigation">
           <ul>
               <li>
-                <Link to="#" onClick={this.showSub.bind(this)}>
+                <Link to="#" onClick={this.setState({toggleMovie: true})}>
                   Film
                 </Link>
               </li>
@@ -30,8 +34,7 @@ export default class Header extends Component {
           </ul>
         </nav>
         </div>
-        <SubMenu />
-        <SubMenu />
+        { this.state.toggleMovie ? <SubMenu /> : null }
       </header>
     );
   }
