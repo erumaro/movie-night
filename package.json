@@ -8,9 +8,14 @@
     "wp": "webpack --progress --colors",
     "build": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
     "stats": "webpack --json > stats.json",
-    "test": "jest --verbose",
+    "test": "jest",
     "test-watch": "jest --verbose --watch"
   },
+  
+  "jest": {
+    "verbose": true 
+  },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/erumaro/movie-night.git"

@@ -1,4 +1,5 @@
 export default function (state = [], action) {
+	
 	switch (action.type) {
 	case "FETCH_POPULAR_MOVIES":
 		state.splice(0, state.length)

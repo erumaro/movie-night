@@ -22,6 +22,8 @@ export function fetchPopularMovies() {
 		type: "FETCH_POPULAR_MOVIES",
 		payload: request
 	};
+
+
 }
 
 // Hämtar alla kommande filmer
