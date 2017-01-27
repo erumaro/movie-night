@@ -4,7 +4,7 @@ import SearchBar from '../containers/search_bar';
 
 export default class Header extends Component {
   constructor(props){
-      super(props);
+    super(props);
     this.state = {
       showMovieSubMenu: false,
       showTvSubMenu: false,
@@ -14,11 +14,17 @@ export default class Header extends Component {
     this.toggleClickTv = this.toggleClickTv.bind(this);
   }
   toggleClickMovie(){
+    this.setState({
+        showTvSubMenu: false,
+    });
     this.setState(prevState => ({
       showMovieSubMenu: !prevState.showMovieSubMenu
     }));
   }
   toggleClickTv(){
+    this.setState({
+        showMovieSubMenu: false,
+    });
     this.setState(prevState => ({
       showTvSubMenu: !prevState.showTvSubMenu
     }));
