@@ -1,21 +1,19 @@
-
-
-@media only screen and (min-width: 768px) {
 header {
     background: #bc0000;
     font-family: "Roboto";
 }
 
-header div {
+header .header-container {
     display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
+    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    padding: 0.3em 0;
 }
 
-header img {
-    width: 10%;
+.logo{
     height: auto;
+    width: 40%;
 }
 
 .site-navigation ul, .sub-menu ul {
@@ -23,58 +21,45 @@ header img {
     padding: 0;
     margin: 0;
     display: flex;
+    flex-direction: column;
 }
 
 .site-navigation ul li a, .sub-menu ul li a {
     text-decoration: none;
     color: #fff;
-  margin: 0 1em;
+    margin: 0 1em;
+}
+
+.site-navigation ul li, .sub-menu ul li{
+    margin: 0.3em 0;
 }
 
 .sub-menu{
-  background: black;
-  height: 40px;
-}
+    background: black;
 }
 
-
-/*
-
-.site-navigation ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
+.sub-menu ul{
+    padding: 0.3em 0;
     align-items: center;
 }
 
-.site-navigation ul li{
-    margin-right: 1em;
+@media only screen and (min-width: 768px) {
+header .header-container {
+    justify-content: flex-start;
+    flex-direction: row;
 }
 
-.site-navigation ul li a{
-    text-decoration: none;
-    color: #fff;
+.logo {
+    width: 10%;
+}
+    
+.site-navigation ul, .sub-menu ul {
+    flex-direction: row;
 }
 
-.site-navigation ul ul{
-    background: #000;
-    font-size: 0.7em;
+.sub-menu{
+    height: 40px;
+    align-items: center;
+    padding-left: 14vw;
 }
-
-
-
-.site-navigation ul li a.current-overview{
-    border-bottom: 2px solid #fff;
 }
-
-.site-navigation ul ul{
-    width: 100%;
-    background: #000;
-    font-size: 0.6em;
-}
-
-.site-navigation ul ul li a{
-    color: rgba(255, 255, 255, 0.5);
-}
-*/

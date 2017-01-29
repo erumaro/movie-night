@@ -8,6 +8,8 @@ export default class Header extends Component {
     this.state = {
       showMovieSubMenu: false,
       showTvSubMenu: false,
+        showActiveMovie: false,
+        showActiveTv: false,
     }
     
     this.toggleClickMovie = this.toggleClickMovie.bind(this);
@@ -16,17 +18,21 @@ export default class Header extends Component {
   toggleClickMovie(){
     this.setState({
         showTvSubMenu: false,
+        showActiveTv: false,
     });
     this.setState(prevState => ({
-      showMovieSubMenu: !prevState.showMovieSubMenu
+        showMovieSubMenu: !prevState.showMovieSubMenu,
+        showActiveMovie: !prevState.showActiveMovie,
     }));
   }
   toggleClickTv(){
     this.setState({
         showMovieSubMenu: false,
+        showActiveMovie: false,
     });
     this.setState(prevState => ({
-      showTvSubMenu: !prevState.showTvSubMenu
+      showTvSubMenu: !prevState.showTvSubMenu,
+        showActiveTv: !prevState.showActiveTv,
     }));
   }
   render(){
@@ -36,19 +42,25 @@ export default class Header extends Component {
     const showHideTv = {
       'display': this.state.showTvSubMenu ? 'flex' : 'none'
     }
+    const showActiveMovie = {
+        'border-bottom': this.state.showActiveMovie ? '3px solid #fff' : 'none'
+    }
+    const showActiveTv = {
+        'border-bottom': this.state.showActiveTv ? '3px solid #fff' : 'none'
+    }
     return(
       <header>
-        <div className="centeringDiv">
-        <img src="../img/logo.PNG" />
+        <div className="header-container centeringDiv">
+        <img className="logo" src="../img/logo.PNG" />
         <nav className="site-navigation">
           <ul>
               <li>
-                <Link to="#" onClick={this.toggleClickMovie}>
+                <Link style={showActiveMovie} to="#" onClick={this.toggleClickMovie}>
                   Film
                 </Link>
               </li>
               <li>
-                <Link to="#" onClick={this.toggleClickTv}>
+                <Link style={showActiveTv} to="#" onClick={this.toggleClickTv}>
                   TV
                 </Link>
               </li>
