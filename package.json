@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/erumaro/movie-night/issues"
   },
-  "homepage": "https://github.com/erumaro/movie-night#readme",
+  "homepage": "https://erumaro.github.io/movie-night",
   "devDependencies": {
     "axios": "^0.15.3",
     "babel-core": "^6.21.0",
