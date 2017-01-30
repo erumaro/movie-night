@@ -43,10 +43,10 @@ export default class Header extends Component {
       'display': this.state.showTvSubMenu ? 'flex' : 'none'
     }
     const showActiveMovie = {
-        'border-bottom': this.state.showActiveMovie ? '3px solid #fff' : 'none'
+        'borderBottom': this.state.showActiveMovie ? '3px solid #fff' : 'none'
     }
     const showActiveTv = {
-        'border-bottom': this.state.showActiveTv ? '3px solid #fff' : 'none'
+        'borderBottom': this.state.showActiveTv ? '3px solid #fff' : 'none'
     }
     return(
       <header>
