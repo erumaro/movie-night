@@ -70,6 +70,7 @@ export default class Header extends Component {
         <nav id="cat-movie" className="sub-menu" style={showHideMovie}>
           <div className="centeringDiv">
               <ul>
+                <li className="active-name">Film:</li>
                 <li className="menu-item">
                   <Link to="/movieOverview/popular" onClick={this.toggleClickMovie}>
                     Popular
@@ -96,6 +97,7 @@ export default class Header extends Component {
         <nav id="cat-tv" className="sub-menu" style={showHideTv}>
           <div className="centeringDiv">
               <ul>
+                <li className="active-name">TV:</li>
                 <li className="menu-item">
                   <Link to="/tvOverview/popular" onClick={this.toggleClickTv}>
                     Popular
