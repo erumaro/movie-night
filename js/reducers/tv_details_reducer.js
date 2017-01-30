@@ -3,6 +3,10 @@ export default function (state = [], action) {
 	case "FETCH_TV_DETAILS":
 		state.splice(0, state.length)
 		return state.concat(action.payload.data);
+		break;
+
+		default: {
+			return state;
+		}
 	}
-		return state;
 }

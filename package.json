@@ -11,11 +11,14 @@
     "test": "jest",
     "test-watch": "jest --verbose --watch"
   },
-  
   "jest": {
-    "verbose": true 
+    "verbose": true,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/__tests__/"
+    ],
+    "collectCoverage": true
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/erumaro/movie-night.git"
@@ -28,6 +31,7 @@
   "homepage": "https://github.com/erumaro/movie-night#readme",
   "devDependencies": {
     "axios": "^0.15.3",
+    "axios-mock-adapter": "^1.7.1",
     "babel-core": "^6.21.0",
     "babel-jest": "^18.0.0",
     "babel-loader": "^6.2.10",

@@ -1,10 +1,24 @@
+// Reducers
 import reducerMovies from "../js/reducers/movie_reducer.js";
 import reducerMovieDetails from "../js/reducers/movie_details_reducer.js";
-
 import reducerTv from "../js/reducers/tv_reducer.js";
 import reducerTvDetails from "../js/reducers/tv_details_reducer.js";
 
+//Actions
 import * as actions from '../js/actions/index.js';
+
+// Mock Axios
+var axios = require('axios');
+var MockAdapter = require('axios-mock-adapter');
+var mock = new MockAdapter(axios);
+
+
+
+
+
+
+
+// ---------------------------------------------------------------------------------------------------------
 
 describe("Movie reducer tests", () => {
 
@@ -63,6 +77,29 @@ describe("Tv reducer tests", () => {
 
   it('Should return array from reducer when FETCH_TV_DETAILS is called', () => {
     expect(reducerTvDetails(initialState, actions.fetchTvDetails )).toEqual([])
+  })
+
+
+})
+
+describe("Mock Test", () => {
+
+  let state = [];
+  
+  mock.onGet('/movie/popular').reply({
+    movies: [
+      { id: 42 }
+    ]
+  });
+  
+  axios.get('/movie/popular')
+    .then(function(response) {
+      state.splice(0, state.length)
+      state.concat(response.data)
+    });
+
+  it('Testing Mocks', () => {
+    expect(reducerMovies(state)).toEqual(state)
   })
 
 

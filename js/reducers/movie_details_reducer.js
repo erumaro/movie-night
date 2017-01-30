@@ -1,4 +1,4 @@
-export default function requestMovieDetails(state = [], action) {
+export default function (state = [], action) {
 	switch (action.type) {
 	case "FETCH_MOVIE_DETAILS":
 		state.splice(0, state.length)
