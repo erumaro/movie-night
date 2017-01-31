@@ -1,14 +1,28 @@
-jest.unmock('../js/components/header')
-
 import ReactTestRenderer from 'react-test-renderer'
 import ReactDOM from 'react-dom'
 import React from 'react'
-import Header from '../js/components/header'
+import {Router, Route, Link, hashHistory} from 'react-router';
 
-describe('Header', function(){
-    it('blabla', function(){
-        let header = ReactTestRenderer.create(
-            <Header />
-        );
+describe('A <Link>', () => {
+    let node
+      beforeEach(() => {
+        node = document.createElement('div')
+    })
+    it('creates a functioning href', () => {
+        const LinkWrapper = () => (
+            <Link to={{
+                pathname: 'movieOverview/popular'
+            }}>
+                Link
+            </Link>
+        )
+        ReactTestRenderer.create((
+            <Router history={hashHistory}>
+               <Route path="/" component={LinkWrapper} />
+            </Router>
+        ), node, () => {
+            const a = node.querySelector('a')
+            expect(a.getAttribute('href')).toEqual('/movieOverview/popular')
+        })
     })
 })
