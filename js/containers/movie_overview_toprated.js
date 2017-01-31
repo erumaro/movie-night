@@ -29,7 +29,7 @@ class MovieOverviewToprated extends Component {
 
 			<article key={Math.random()} className="movieThumb">
 			
-				<Link to={`/movieDetails/${movieList.id}`}>{movieList.backdrop_path === null ? <img src="/img/no_image.png"></img> : <img src={"https://image.tmdb.org/t/p/w500_and_h281_bestv2/" + movieList.backdrop_path}></img>}</Link>
+				<Link to={`/movieDetails/${movieList.id}`}>{movieList.backdrop_path === null ? <img src="img/no_image.png"></img> : <img src={"https://image.tmdb.org/t/p/w500_and_h281_bestv2/" + movieList.backdrop_path}></img>}</Link>
 
 				<section className="info">
 					
