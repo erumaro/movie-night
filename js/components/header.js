@@ -49,7 +49,7 @@ export default class Header extends Component {
         'borderBottom': this.state.showActiveTv ? '3px solid #fff' : 'none'
     }
     return(
-      <header>
+      <header className="app-header">
         <div className="header-container centeringDiv">
         <img className="logo" src="img/logo.png" />
         <nav className="site-navigation">
