@@ -51,7 +51,7 @@ export default class Header extends Component {
     return(
       <header>
         <div className="header-container centeringDiv">
-        <img className="logo" src={'../img/logo.PNG'} />
+        <img className="logo" src="img/logo.png" />
         <nav className="site-navigation">
           <ul>
               <li>
