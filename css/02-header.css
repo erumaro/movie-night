@@ -76,11 +76,13 @@ header .header-container {
 .sub-menu{
     height: 40px;
     align-items: center;
+    padding-left: 10px;
 }
 
 .active-name{
   display: block;
   color: #fff;
   font-weight: 900;
+    font-size: 20px;
 }
 }
