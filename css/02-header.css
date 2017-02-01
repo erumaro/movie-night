@@ -55,6 +55,10 @@ header .header-container {
     align-items: center;
 }
 
+.active-name{
+  display: none;
+}
+
 @media only screen and (min-width: 768px) {
 header .header-container {
     justify-content: flex-start;
@@ -72,6 +76,11 @@ header .header-container {
 .sub-menu{
     height: 40px;
     align-items: center;
-    padding-left: 14vw;
+}
+
+.active-name{
+  display: block;
+  color: #fff;
+  font-weight: 900;
 }
 }

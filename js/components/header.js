@@ -43,15 +43,15 @@ export default class Header extends Component {
       'display': this.state.showTvSubMenu ? 'flex' : 'none'
     }
     const showActiveMovie = {
-        'border-bottom': this.state.showActiveMovie ? '3px solid #fff' : 'none'
+        'borderBottom': this.state.showActiveMovie ? '3px solid #fff' : 'none'
     }
     const showActiveTv = {
-        'border-bottom': this.state.showActiveTv ? '3px solid #fff' : 'none'
+        'borderBottom': this.state.showActiveTv ? '3px solid #fff' : 'none'
     }
     return(
-      <header>
+      <header className="app-header">
         <div className="header-container centeringDiv">
-        <img className="logo" src="../img/logo.PNG" />
+        <img className="logo" src="img/logo.png" />
         <nav className="site-navigation">
           <ul>
               <li>
@@ -70,6 +70,7 @@ export default class Header extends Component {
         <nav id="cat-movie" className="sub-menu" style={showHideMovie}>
           <div className="centeringDiv">
               <ul>
+                <li className="active-name">Film:</li>
                 <li className="menu-item">
                   <Link to="/movieOverview/popular" onClick={this.toggleClickMovie}>
                     Popular
@@ -96,6 +97,7 @@ export default class Header extends Component {
         <nav id="cat-tv" className="sub-menu" style={showHideTv}>
           <div className="centeringDiv">
               <ul>
+                <li className="active-name">TV:</li>
                 <li className="menu-item">
                   <Link to="/tvOverview/popular" onClick={this.toggleClickTv}>
                     Popular
