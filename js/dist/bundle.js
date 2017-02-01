@@ -76,54 +76,54 @@
 
 	var _app2 = _interopRequireDefault(_app);
 
-	var _movie_overview_popular = __webpack_require__(444);
+	var _movie_overview_popular = __webpack_require__(445);
 
 	var _movie_overview_popular2 = _interopRequireDefault(_movie_overview_popular);
 
-	var _movie_overview_upcoming = __webpack_require__(445);
+	var _movie_overview_upcoming = __webpack_require__(446);
 
 	var _movie_overview_upcoming2 = _interopRequireDefault(_movie_overview_upcoming);
 
-	var _movie_overview_playing = __webpack_require__(447);
+	var _movie_overview_playing = __webpack_require__(448);
 
 	var _movie_overview_playing2 = _interopRequireDefault(_movie_overview_playing);
 
-	var _movie_overview_toprated = __webpack_require__(448);
+	var _movie_overview_toprated = __webpack_require__(449);
 
 	var _movie_overview_toprated2 = _interopRequireDefault(_movie_overview_toprated);
 
-	var _tv_overview_popular = __webpack_require__(449);
+	var _tv_overview_popular = __webpack_require__(450);
 
 	var _tv_overview_popular2 = _interopRequireDefault(_tv_overview_popular);
 
-	var _tv_overview_upcoming = __webpack_require__(451);
+	var _tv_overview_upcoming = __webpack_require__(452);
 
 	var _tv_overview_upcoming2 = _interopRequireDefault(_tv_overview_upcoming);
 
-	var _tv_overview_playing = __webpack_require__(453);
+	var _tv_overview_playing = __webpack_require__(454);
 
 	var _tv_overview_playing2 = _interopRequireDefault(_tv_overview_playing);
 
-	var _tv_overview_toprated = __webpack_require__(454);
+	var _tv_overview_toprated = __webpack_require__(455);
 
 	var _tv_overview_toprated2 = _interopRequireDefault(_tv_overview_toprated);
 
-	var _movie_details = __webpack_require__(446);
+	var _movie_details = __webpack_require__(447);
 
 	var _movie_details2 = _interopRequireDefault(_movie_details);
 
-	var _tv_details = __webpack_require__(450);
+	var _tv_details = __webpack_require__(451);
 
 	var _tv_details2 = _interopRequireDefault(_tv_details);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// StyleSheets
-	__webpack_require__(455);
-	__webpack_require__(459);
-	__webpack_require__(461);
-	__webpack_require__(463);
-	__webpack_require__(465);
+	__webpack_require__(456);
+	__webpack_require__(460);
+	__webpack_require__(462);
+	__webpack_require__(464);
+	__webpack_require__(466);
 	// require("../css/04-search_bar.css");
 
 	// React
@@ -148,6 +148,7 @@
 
 
 	// Movie/tv Details
+
 
 	// Consts
 	var logger = (0, _reduxLogger2.default)();
@@ -25335,8 +25336,8 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.default = requestMovieDetails;
-	function requestMovieDetails() {
+
+	exports.default = function () {
 		var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 		var action = arguments[1];
 
@@ -25351,7 +25352,7 @@
 					return state;
 				}
 		}
-	}
+	};
 
 /***/ },
 /* 242 */
@@ -25371,8 +25372,13 @@
 			case "FETCH_TV_DETAILS":
 				state.splice(0, state.length);
 				return state.concat(action.payload.data);
+				break;
+
+			default:
+				{
+					return state;
+				}
 		}
-		return state;
 	};
 
 /***/ },
@@ -31382,35 +31388,35 @@
 
 	var _header2 = _interopRequireDefault(_header);
 
-	var _movie_overview_popular = __webpack_require__(444);
+	var _movie_overview_popular = __webpack_require__(445);
 
 	var _movie_overview_popular2 = _interopRequireDefault(_movie_overview_popular);
 
-	var _movie_overview_upcoming = __webpack_require__(445);
+	var _movie_overview_upcoming = __webpack_require__(446);
 
 	var _movie_overview_upcoming2 = _interopRequireDefault(_movie_overview_upcoming);
 
-	var _movie_overview_playing = __webpack_require__(447);
+	var _movie_overview_playing = __webpack_require__(448);
 
 	var _movie_overview_playing2 = _interopRequireDefault(_movie_overview_playing);
 
-	var _movie_overview_toprated = __webpack_require__(448);
+	var _movie_overview_toprated = __webpack_require__(449);
 
 	var _movie_overview_toprated2 = _interopRequireDefault(_movie_overview_toprated);
 
-	var _tv_overview_popular = __webpack_require__(449);
+	var _tv_overview_popular = __webpack_require__(450);
 
 	var _tv_overview_popular2 = _interopRequireDefault(_tv_overview_popular);
 
-	var _tv_overview_upcoming = __webpack_require__(451);
+	var _tv_overview_upcoming = __webpack_require__(452);
 
 	var _tv_overview_upcoming2 = _interopRequireDefault(_tv_overview_upcoming);
 
-	var _tv_overview_playing = __webpack_require__(453);
+	var _tv_overview_playing = __webpack_require__(454);
 
 	var _tv_overview_playing2 = _interopRequireDefault(_tv_overview_playing);
 
-	var _tv_overview_toprated = __webpack_require__(454);
+	var _tv_overview_toprated = __webpack_require__(455);
 
 	var _tv_overview_toprated2 = _interopRequireDefault(_tv_overview_toprated);
 
@@ -31498,7 +31504,9 @@
 
 	    _this.state = {
 	      showMovieSubMenu: false,
-	      showTvSubMenu: false
+	      showTvSubMenu: false,
+	      showActiveMovie: false,
+	      showActiveTv: false
 	    };
 
 	    _this.toggleClickMovie = _this.toggleClickMovie.bind(_this);
@@ -31509,18 +31517,28 @@
 	  _createClass(Header, [{
 	    key: 'toggleClickMovie',
 	    value: function toggleClickMovie() {
+	      this.setState({
+	        showTvSubMenu: false,
+	        showActiveTv: false
+	      });
 	      this.setState(function (prevState) {
 	        return {
-	          showMovieSubMenu: !prevState.showMovieSubMenu
+	          showMovieSubMenu: !prevState.showMovieSubMenu,
+	          showActiveMovie: !prevState.showActiveMovie
 	        };
 	      });
 	    }
 	  }, {
 	    key: 'toggleClickTv',
 	    value: function toggleClickTv() {
+	      this.setState({
+	        showMovieSubMenu: false,
+	        showActiveMovie: false
+	      });
 	      this.setState(function (prevState) {
 	        return {
-	          showTvSubMenu: !prevState.showTvSubMenu
+	          showTvSubMenu: !prevState.showTvSubMenu,
+	          showActiveTv: !prevState.showActiveTv
 	        };
 	      });
 	    }
@@ -31533,13 +31551,19 @@
 	      var showHideTv = {
 	        'display': this.state.showTvSubMenu ? 'flex' : 'none'
 	      };
+	      var showActiveMovie = {
+	        'border-bottom': this.state.showActiveMovie ? '3px solid #fff' : 'none'
+	      };
+	      var showActiveTv = {
+	        'border-bottom': this.state.showActiveTv ? '3px solid #fff' : 'none'
+	      };
 	      return _react2.default.createElement(
 	        'header',
 	        null,
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'centeringDiv' },
-	          _react2.default.createElement('img', { src: '../img/logo.PNG' }),
+	          { className: 'header-container centeringDiv' },
+	          _react2.default.createElement('img', { className: 'logo', src: '../img/logo.PNG' }),
 	          _react2.default.createElement(
 	            'nav',
 	            { className: 'site-navigation' },
@@ -31551,7 +31575,7 @@
 	                null,
 	                _react2.default.createElement(
 	                  _reactRouter.Link,
-	                  { to: '#', onClick: this.toggleClickMovie },
+	                  { style: showActiveMovie, to: '#', onClick: this.toggleClickMovie },
 	                  'Film'
 	                )
 	              ),
@@ -31560,7 +31584,7 @@
 	                null,
 	                _react2.default.createElement(
 	                  _reactRouter.Link,
-	                  { to: '#', onClick: this.toggleClickTv },
+	                  { style: showActiveTv, to: '#', onClick: this.toggleClickTv },
 	                  'TV'
 	                )
 	              )
@@ -31807,12 +31831,14 @@
 
 	var _moment2 = _interopRequireDefault(_moment);
 
+	var _ActionTypes = __webpack_require__(444);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var API_KEY = "62dd9d8692c800c357c7bd1bf670c6aa";
 
 	var startDate = (0, _moment2.default)().format('YYYY-MM-D');
-	var endDate = (0, _moment2.default)().endOf("M");
+	var endDate = (0, _moment2.default)().endOf("Y");
 
 	// --- MOVIES --------------------------------------------------------
 
@@ -31826,7 +31852,7 @@
 		});
 
 		return {
-			type: "FETCH_POPULAR_MOVIES",
+			type: _ActionTypes.FETCH_POPULAR_MOVIES,
 			payload: request
 		};
 	}
@@ -31842,7 +31868,7 @@
 		});
 
 		return {
-			type: "FETCH_UPCOMING_MOVIES",
+			type: _ActionTypes.FETCH_UPCOMING_MOVIES,
 			payload: request
 		};
 	}
@@ -48374,6 +48400,18 @@
 
 /***/ },
 /* 444 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var FETCH_POPULAR_MOVIES = exports.FETCH_POPULAR_MOVIES = "FETCH_POPULAR_MOVIES";
+	var FETCH_UPCOMING_MOVIES = exports.FETCH_UPCOMING_MOVIES = "FETCH_UPCOMING_MOVIES";
+
+/***/ },
+/* 445 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48532,7 +48570,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MovieOverviewPopular);
 
 /***/ },
-/* 445 */
+/* 446 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48553,7 +48591,7 @@
 
 	var _index = __webpack_require__(308);
 
-	var _movie_details = __webpack_require__(446);
+	var _movie_details = __webpack_require__(447);
 
 	var _search_bar = __webpack_require__(307);
 
@@ -48693,7 +48731,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MovieOverviewUpcoming);
 
 /***/ },
-/* 446 */
+/* 447 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48716,19 +48754,19 @@
 
 	var _index = __webpack_require__(308);
 
-	var _movie_overview_popular = __webpack_require__(444);
+	var _movie_overview_popular = __webpack_require__(445);
 
 	var _movie_overview_popular2 = _interopRequireDefault(_movie_overview_popular);
 
-	var _movie_overview_upcoming = __webpack_require__(445);
+	var _movie_overview_upcoming = __webpack_require__(446);
 
 	var _movie_overview_upcoming2 = _interopRequireDefault(_movie_overview_upcoming);
 
-	var _movie_overview_playing = __webpack_require__(447);
+	var _movie_overview_playing = __webpack_require__(448);
 
 	var _movie_overview_playing2 = _interopRequireDefault(_movie_overview_playing);
 
-	var _movie_overview_toprated = __webpack_require__(448);
+	var _movie_overview_toprated = __webpack_require__(449);
 
 	var _movie_overview_toprated2 = _interopRequireDefault(_movie_overview_toprated);
 
@@ -48923,7 +48961,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MovieDetails);
 
 /***/ },
-/* 447 */
+/* 448 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48944,7 +48982,7 @@
 
 	var _index = __webpack_require__(308);
 
-	var _movie_details = __webpack_require__(446);
+	var _movie_details = __webpack_require__(447);
 
 	var _search_bar = __webpack_require__(307);
 
@@ -49084,7 +49122,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MovieOverviewPlaying);
 
 /***/ },
-/* 448 */
+/* 449 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49105,7 +49143,7 @@
 
 	var _index = __webpack_require__(308);
 
-	var _movie_details = __webpack_require__(446);
+	var _movie_details = __webpack_require__(447);
 
 	var _search_bar = __webpack_require__(307);
 
@@ -49245,7 +49283,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MovieOverviewToprated);
 
 /***/ },
-/* 449 */
+/* 450 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49266,9 +49304,9 @@
 
 	var _index = __webpack_require__(308);
 
-	var _tv_details = __webpack_require__(450);
+	var _tv_details = __webpack_require__(451);
 
-	var _search_bar_tv = __webpack_require__(452);
+	var _search_bar_tv = __webpack_require__(453);
 
 	var _search_bar_tv2 = _interopRequireDefault(_search_bar_tv);
 
@@ -49416,7 +49454,7 @@
 	//
 
 /***/ },
-/* 450 */
+/* 451 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49439,19 +49477,19 @@
 
 	var _index = __webpack_require__(308);
 
-	var _tv_overview_popular = __webpack_require__(449);
+	var _tv_overview_popular = __webpack_require__(450);
 
 	var _tv_overview_popular2 = _interopRequireDefault(_tv_overview_popular);
 
-	var _tv_overview_upcoming = __webpack_require__(451);
+	var _tv_overview_upcoming = __webpack_require__(452);
 
 	var _tv_overview_upcoming2 = _interopRequireDefault(_tv_overview_upcoming);
 
-	var _tv_overview_playing = __webpack_require__(453);
+	var _tv_overview_playing = __webpack_require__(454);
 
 	var _tv_overview_playing2 = _interopRequireDefault(_tv_overview_playing);
 
-	var _tv_overview_toprated = __webpack_require__(454);
+	var _tv_overview_toprated = __webpack_require__(455);
 
 	var _tv_overview_toprated2 = _interopRequireDefault(_tv_overview_toprated);
 
@@ -49641,7 +49679,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(TvDetails);
 
 /***/ },
-/* 451 */
+/* 452 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49662,9 +49700,9 @@
 
 	var _index = __webpack_require__(308);
 
-	var _tv_details = __webpack_require__(450);
+	var _tv_details = __webpack_require__(451);
 
-	var _search_bar_tv = __webpack_require__(452);
+	var _search_bar_tv = __webpack_require__(453);
 
 	var _search_bar_tv2 = _interopRequireDefault(_search_bar_tv);
 
@@ -49811,7 +49849,7 @@
 	//
 
 /***/ },
-/* 452 */
+/* 453 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49916,7 +49954,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(SearchBarTv);
 
 /***/ },
-/* 453 */
+/* 454 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49937,9 +49975,9 @@
 
 	var _index = __webpack_require__(308);
 
-	var _tv_details = __webpack_require__(450);
+	var _tv_details = __webpack_require__(451);
 
-	var _search_bar_tv = __webpack_require__(452);
+	var _search_bar_tv = __webpack_require__(453);
 
 	var _search_bar_tv2 = _interopRequireDefault(_search_bar_tv);
 
@@ -50087,7 +50125,7 @@
 	//
 
 /***/ },
-/* 454 */
+/* 455 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -50108,9 +50146,9 @@
 
 	var _index = __webpack_require__(308);
 
-	var _tv_details = __webpack_require__(450);
+	var _tv_details = __webpack_require__(451);
 
-	var _search_bar_tv = __webpack_require__(452);
+	var _search_bar_tv = __webpack_require__(453);
 
 	var _search_bar_tv2 = _interopRequireDefault(_search_bar_tv);
 
@@ -50257,16 +50295,16 @@
 	//
 
 /***/ },
-/* 455 */
+/* 456 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(456);
+	var content = __webpack_require__(457);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(458)(content, {});
+	var update = __webpack_require__(459)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -50283,10 +50321,10 @@
 	}
 
 /***/ },
-/* 456 */
+/* 457 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(457)();
+	exports = module.exports = __webpack_require__(458)();
 	// imports
 
 
@@ -50297,7 +50335,7 @@
 
 
 /***/ },
-/* 457 */
+/* 458 */
 /***/ function(module, exports) {
 
 	/*
@@ -50353,7 +50391,7 @@
 
 
 /***/ },
-/* 458 */
+/* 459 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -50605,16 +50643,16 @@
 
 
 /***/ },
-/* 459 */
+/* 460 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(460);
+	var content = __webpack_require__(461);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(458)(content, {});
+	var update = __webpack_require__(459)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -50631,10 +50669,10 @@
 	}
 
 /***/ },
-/* 460 */
+/* 461 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(457)();
+	exports = module.exports = __webpack_require__(458)();
 	// imports
 
 
@@ -50645,16 +50683,16 @@
 
 
 /***/ },
-/* 461 */
+/* 462 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(462);
+	var content = __webpack_require__(463);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(458)(content, {});
+	var update = __webpack_require__(459)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -50671,10 +50709,10 @@
 	}
 
 /***/ },
-/* 462 */
+/* 463 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(457)();
+	exports = module.exports = __webpack_require__(458)();
 	// imports
 
 
@@ -50685,16 +50723,16 @@
 
 
 /***/ },
-/* 463 */
+/* 464 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(464);
+	var content = __webpack_require__(465);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(458)(content, {});
+	var update = __webpack_require__(459)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -50711,30 +50749,30 @@
 	}
 
 /***/ },
-/* 464 */
+/* 465 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(457)();
+	exports = module.exports = __webpack_require__(458)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "\r\n\r\n@media only screen and (min-width: 768px) {\r\nheader {\r\n    background: #bc0000;\r\n    font-family: \"Roboto\";\r\n}\r\n\r\nheader div {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    flex-direction: row;\r\n    align-items: center;\r\n}\r\n\r\nheader img {\r\n    width: 10%;\r\n    height: auto;\r\n}\r\n\r\n.site-navigation ul, .sub-menu ul {\r\n    list-style: none;\r\n    padding: 0;\r\n    margin: 0;\r\n    display: flex;\r\n}\r\n\r\n.site-navigation ul li a, .sub-menu ul li a {\r\n    text-decoration: none;\r\n    color: #fff;\r\n  margin: 0 1em;\r\n}\r\n\r\n.sub-menu{\r\n  background: black;\r\n  height: 40px;\r\n}\r\n}\r\n\r\n\r\n/*\r\n\r\n.site-navigation ul{\r\n    list-style: none;\r\n    padding: 0;\r\n    margin: 0;\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.site-navigation ul li{\r\n    margin-right: 1em;\r\n}\r\n\r\n.site-navigation ul li a{\r\n    text-decoration: none;\r\n    color: #fff;\r\n}\r\n\r\n.site-navigation ul ul{\r\n    background: #000;\r\n    font-size: 0.7em;\r\n}\r\n\r\n\r\n\r\n.site-navigation ul li a.current-overview{\r\n    border-bottom: 2px solid #fff;\r\n}\r\n\r\n.site-navigation ul ul{\r\n    width: 100%;\r\n    background: #000;\r\n    font-size: 0.6em;\r\n}\r\n\r\n.site-navigation ul ul li a{\r\n    color: rgba(255, 255, 255, 0.5);\r\n}\r\n*/", ""]);
+	exports.push([module.id, "header {\r\n    background: #bc0000;\r\n    font-family: \"Roboto\";\r\n}\r\n\r\nheader .header-container {\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    padding: 0.3em 0;\r\n}\r\n\r\n.logo{\r\n    height: auto;\r\n    width: 40%;\r\n}\r\n\r\n.site-navigation ul, .sub-menu ul {\r\n    list-style: none;\r\n    padding: 0;\r\n    margin: 0;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n.site-navigation ul li a, .sub-menu ul li a {\r\n    text-decoration: none;\r\n    color: #fff;\r\n    margin: 0 1em;\r\n}\r\n\r\n.site-navigation ul li, .sub-menu ul li{\r\n    margin: 0.3em 0;\r\n}\r\n\r\n.sub-menu{\r\n    background: black;\r\n}\r\n\r\n.sub-menu ul{\r\n    padding: 0.3em 0;\r\n    align-items: center;\r\n}\r\n\r\n@media only screen and (min-width: 768px) {\r\nheader .header-container {\r\n    justify-content: flex-start;\r\n    flex-direction: row;\r\n}\r\n\r\n.logo {\r\n    width: 10%;\r\n}\r\n    \r\n.site-navigation ul, .sub-menu ul {\r\n    flex-direction: row;\r\n}\r\n\r\n.sub-menu{\r\n    height: 40px;\r\n    align-items: center;\r\n    padding-left: 14vw;\r\n}\r\n}", ""]);
 
 	// exports
 
 
 /***/ },
-/* 465 */
+/* 466 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(466);
+	var content = __webpack_require__(467);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(458)(content, {});
+	var update = __webpack_require__(459)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -50751,10 +50789,10 @@
 	}
 
 /***/ },
-/* 466 */
+/* 467 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(457)();
+	exports = module.exports = __webpack_require__(458)();
 	// imports
 
 

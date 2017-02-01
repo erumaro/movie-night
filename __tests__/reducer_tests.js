@@ -1,106 +1,202 @@
 // Reducers
 import reducerMovies from "../js/reducers/movie_reducer.js";
 import reducerMovieDetails from "../js/reducers/movie_details_reducer.js";
+
 import reducerTv from "../js/reducers/tv_reducer.js";
 import reducerTvDetails from "../js/reducers/tv_details_reducer.js";
 
-//Actions
-import * as actions from '../js/actions/index.js';
-
-// Mock Axios
-var axios = require('axios');
-var MockAdapter = require('axios-mock-adapter');
-var mock = new MockAdapter(axios);
+//Action Constants
+import * as types from "../js/constants/ActionTypes.js";
 
 
+describe("Movie Reducer", () => {
 
-
-
-
-
-// ---------------------------------------------------------------------------------------------------------
-
-describe("Movie reducer tests", () => {
-
-  const initialState = [];
-
-  it('Should return array from reducer when FETCH_POPULAR_MOVIES is called', () => {
-    expect(reducerMovies(initialState, actions.fetchPopularMovies )).toEqual([])
+	// Initial State Movie Overview
+  it('should handle the initial Movie Overview state', () => {
+    expect(reducerMovies(undefined, [])).toEqual([])
   })
 
-  it('Should return array from reducer when FETCH_UPCOMING_MOVIES is called', () => {
-    expect(reducerMovies(initialState, actions.fetchUpcomingMovies )).toEqual([])
+ 	// Initial State Movie Details
+  it('should handle the initial Movie Details state', () => {
+    expect(reducerMovieDetails(undefined, [])).toEqual([])
   })
 
-  it('Should return array from reducer when FETCH_PLAYING_MOVIES is called', () => {
-    expect(reducerMovies(initialState, actions.fetchNowPlayingMovies )).toEqual([])
-  })
+	// Popular Movies
+	it('should handle FETCH_POPULAR_MOVIES', () => {
+   expect(reducerMovies([], {
+   	type: types.FETCH_POPULAR_MOVIES, 
+   		payload:{
+   			data:{
+   				results:[{title: "Some popular movie"}]
+   			}
+   		}
+   	}
+   )).toEqual([{title: "Some popular movie"}])
+	})
 
-  it('Should return array from reducer when FETCH_TOPRATED_MOVIES is called', () => {
-    expect(reducerMovies(initialState, actions.fetchTopRatedMovies )).toEqual([])
-  })
+	// Upcoming Movies
+	it('should handle FETCH_UPCOMING_MOVIES', () => {
+   expect(reducerMovies([], {
+   	type: types.FETCH_UPCOMING_MOVIES, 
+   		payload:{
+   			data:{
+   				results:[{title: "Some upcoming movie"}]
+   			}
+   		}
+   	}
+   )).toEqual([{title: "Some upcoming movie"}])
+	})
 
-  it('Should return array from reducer when FETCH_SEARCH_RESULTS is called', () => {
-    expect(reducerMovies(initialState, actions.fetchSearchResults )).toEqual([])
-  })
+	// Playing Now Movies
+	it('should handle FETCH_PLAYING_MOVIES', () => {
+   expect(reducerMovies([], {
+   	type: types.FETCH_PLAYING_MOVIES, 
+   		payload:{
+   			data:{
+   				results:[{title: "Some playing now movie"}]
+   			}
+   		}
+   	}
+   )).toEqual([{title: "Some playing now movie"}])
+	})
 
-  it('Should return array from reducer when FETCH_MOVIE_DETAILS is called', () => {
-    expect(reducerMovieDetails(initialState, actions.fetchMovieDetails )).toEqual([])
-  })
+	// Top Rated Movies
+	it('should handle FETCH_TOPRATED_MOVIES', () => {
+   expect(reducerMovies([], {
+   	type: types.FETCH_TOPRATED_MOVIES, 
+   		payload:{
+   			data:{
+   				results:[{title: "Some toprated movie"}]
+   			}
+   		}
+   	}
+   )).toEqual([{title: "Some toprated movie"}])
+	})
 
+	// Movie Details
+	it('should handle FETCH_MOVIE_DETAILS', () => {
+   expect(reducerMovieDetails([], {
+   	type: types.FETCH_MOVIE_DETAILS, 
+   		payload:{
+   			data:{
+   				title: "Some movie details"
+   			}
+   		}
+   	}
+   )).toEqual([{title: "Some movie details"}])
+	})
+
+	// Search Movies
+	it('should handle FETCH_SEARCH_RESULTS', () => {
+   expect(reducerMovies([], {
+   	type: types.FETCH_SEARCH_RESULTS, 
+   		payload:{
+   			data:{
+   				results:[{title: "Search movies"}]
+   			}
+   		}
+   	}
+   )).toEqual([{title: "Search movies"}])
+	})
 
 })
 
-describe("Tv reducer tests", () => {
 
-  const initialState = [];
+describe("TV Reducer", () => {
 
-  it('Should return array from reducer when FETCH_POPULAR_TV is called', () => {
-    expect(reducerTv(initialState, actions.fetchPopularTV )).toEqual([])
+	// Initial State TV Overview
+  it('should handle the initial TV Overview state', () => {
+    expect(reducerTv(undefined, [])).toEqual([])
   })
 
-  it('Should return array from reducer when FETCH_UPCOMING_TV is called', () => {
-    expect(reducerTv(initialState, actions.fetchUpcomingTV )).toEqual([])
+ 	// Initial State TV Details
+  it('should handle the initial TV Details state', () => {
+    expect(reducerTvDetails(undefined, [])).toEqual([])
   })
 
-  it('Should return array from reducer when FETCH_PLAYING_TV is called', () => {
-    expect(reducerTv(initialState, actions.fetchPlayingTV )).toEqual([])
-  })
+	// Popular TV Shows
+	it('should handle FETCH_POPULAR_TV', () => {
+   expect(reducerTv([], {
+   	type: types.FETCH_POPULAR_TV, 
+   		payload:{
+   			data:{
+   				results:[{title: "Some popular tv show"}]
+   			}
+   		}
+   	}
+   )).toEqual([{title: "Some popular tv show"}])
+	})
 
-  it('Should return array from reducer when FETCH_TOPRATED_TV is called', () => {
-    expect(reducerTv(initialState, actions.fetchTopRatedTV )).toEqual([])
-  })
+	// Upcoming TV Shows
+	it('should handle FETCH_UPCOMING_TV', () => {
+   expect(reducerTv([], {
+   	type: types.FETCH_UPCOMING_TV, 
+   		payload:{
+   			data:{
+   				results:[{title: "Some upcoming tv show"}]
+   			}
+   		}
+   	}
+   )).toEqual([{title: "Some upcoming tv show"}])
+	})
 
-  it('Should return array from reducer when FETCH_SEARCH_RESULTS_TV is called', () => {
-    expect(reducerTv(initialState, actions.fetchSearchResultsTv )).toEqual([])
-  })
+	// Playing now TV Shows
+	it('should handle FETCH_PLAYING_TV', () => {
+   expect(reducerTv([], {
+   	type: types.FETCH_PLAYING_TV, 
+   		payload:{
+   			data:{
+   				results:[{title: "Some playing tv show"}]
+   			}
+   		}
+   	}
+   )).toEqual([{title: "Some playing tv show"}])
+	})
 
-  it('Should return array from reducer when FETCH_TV_DETAILS is called', () => {
-    expect(reducerTvDetails(initialState, actions.fetchTvDetails )).toEqual([])
-  })
+	// Top Rated TV Shows
+	it('should handle FETCH_TOPRATED_TV', () => {
+   expect(reducerTv([], {
+   	type: types.FETCH_TOPRATED_TV, 
+   		payload:{
+   			data:{
+   				results:[{title: "Some toprated tv show"}]
+   			}
+   		}
+   	}
+   )).toEqual([{title: "Some toprated tv show"}])
+	})
+
+	// TV Details
+	it('should handle FETCH_TV_DETAILS', () => {
+   expect(reducerTvDetails([], {
+   	type: types.FETCH_TV_DETAILS, 
+   		payload:{
+   			data:{
+   				title: "Some tv details"
+   			}
+   		}
+   	}
+   )).toEqual([{title: "Some tv details"}])
+	})
+
+	// Search TV shows
+	it('should handle FETCH_SEARCH_RESULTS_TV', () => {
+   expect(reducerTv([], {
+   	type: types.FETCH_SEARCH_RESULTS_TV, 
+   		payload:{
+   			data:{
+   				results:[{title: "Search tv shows"}]
+   			}
+   		}
+   	}
+   )).toEqual([{title: "Search tv shows"}])
+	})
 
 
-})
 
-describe("Mock Test", () => {
 
-  let state = [];
-  
-  mock.onGet('/movie/popular').reply({
-    movies: [
-      { id: 42 }
-    ]
-  });
-  
-  axios.get('/movie/popular')
-    .then(function(response) {
-      state.splice(0, state.length)
-      state.concat(response.data)
-    });
 
-  it('Testing Mocks', () => {
-    expect(reducerMovies(state)).toEqual(state)
-  })
+
 
 
 })

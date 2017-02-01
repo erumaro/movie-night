@@ -40,6 +40,9 @@ import TvOverviewToprated from './containers/tv_overview_toprated.js'
   // Movie/tv Details
 import MovieDetails from './containers/movie_details.js'
 import TvDetails from './containers/tv_details.js'
+
+
+
 // Consts
 const logger = createLogger();
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise, logger)(createStore);

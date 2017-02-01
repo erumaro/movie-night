@@ -8,7 +8,7 @@ header .header-container {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 0.3em 0;
+    padding: 1.3em 0;
 }
 
 .logo{
@@ -28,14 +28,26 @@ header .header-container {
     text-decoration: none;
     color: #fff;
     margin: 0 1em;
+    font-size: 20px;
+}
+
+.sub-menu ul li a {
+   color: #666; 
+   font-size: 18px;
+}
+
+.sub-menu ul li a:hover {
+   color: #FFF; 
 }
 
 .site-navigation ul li, .sub-menu ul li{
     margin: 0.3em 0;
 }
 
+
+
 .sub-menu{
-    background: black;
+    background: #111;
 }
 
 .sub-menu ul{

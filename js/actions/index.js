@@ -1,10 +1,12 @@
 import axios from "axios";
 import moment from "moment";
 
+import * as types from "../constants/ActionTypes.js";
+
 const API_KEY = "62dd9d8692c800c357c7bd1bf670c6aa";
 
 let startDate = moment().format('YYYY-MM-D');
-let endDate = moment().endOf("M");
+let endDate = moment().endOf("Y");
 
 
 // --- MOVIES --------------------------------------------------------
@@ -19,7 +21,7 @@ export function fetchPopularMovies() {
 	})
 
 	return {
-		type: "FETCH_POPULAR_MOVIES",
+		type: types.FETCH_POPULAR_MOVIES,
 		payload: request
 	};
 
@@ -37,7 +39,7 @@ export function fetchUpcomingMovies(){
 	})
 
 	return {
-		type: "FETCH_UPCOMING_MOVIES",
+		type: types.FETCH_UPCOMING_MOVIES,
 		payload: request
 	};
 }
@@ -52,7 +54,7 @@ export function fetchNowPlayingMovies(){
 	})
 
 	return {
-		type: "FETCH_PLAYING_MOVIES",
+		type: types.FETCH_PLAYING_MOVIES,
 		payload: request
 	};
 }
@@ -67,7 +69,7 @@ export function fetchTopRatedMovies(){
 	})
 
 	return {
-		type: "FETCH_TOPRATED_MOVIES",
+		type: types.FETCH_TOPRATED_MOVIES,
 		payload: request
 	};
 }
@@ -82,7 +84,7 @@ export function fetchMovieDetails(movieId){
 	})
 
 	return {
-		type: "FETCH_MOVIE_DETAILS",
+		type: types.FETCH_MOVIE_DETAILS,
 		payload: request
 	};
 }
@@ -96,7 +98,7 @@ export function fetchSearchResults(term){
 	})
 
 	return {
-		type: "FETCH_SEARCH_RESULTS",
+		type: types.FETCH_SEARCH_RESULTS,
 		payload: request
 	};
 }
@@ -113,7 +115,7 @@ export function fetchPopularTV(){
 	})
 
 	return {
-		type: "FETCH_POPULAR_TV",
+		type: types.FETCH_POPULAR_TV,
 		payload: request
 	};
 }
@@ -129,7 +131,7 @@ export function fetchUpcomingTV(){
 	})
 
 	return {
-		type: "FETCH_UPCOMING_TV",
+		type: types.FETCH_UPCOMING_TV,
 		payload: request
 	};
 }
@@ -144,7 +146,7 @@ export function fetchPlayingTV(){
 	})
 
 	return {
-		type: "FETCH_PLAYING_TV",
+		type: types.FETCH_PLAYING_TV,
 		payload: request
 	};
 }
@@ -159,7 +161,7 @@ export function fetchTopRatedTV(){
 	})
 
 	return {
-		type: "FETCH_TOPRATED_TV",
+		type: types.FETCH_TOPRATED_TV,
 		payload: request
 	};
 }
@@ -174,7 +176,7 @@ export function fetchTvDetails(tvId){
 	})
 
 	return {
-		type: "FETCH_TV_DETAILS",
+		type: types.FETCH_TV_DETAILS,
 		payload: request
 	};
 }
@@ -189,7 +191,7 @@ export function fetchSearchResultsTv(term){
 	})
 
 	return {
-		type: "FETCH_SEARCH_RESULTS_TV",
+		type: types.FETCH_SEARCH_RESULTS_TV,
 		payload: request
 	};
 }
