@@ -29,6 +29,7 @@ header .header-container {
     color: #fff;
     margin: 0 1em;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .sub-menu ul li a {

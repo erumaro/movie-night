@@ -15,8 +15,7 @@ export default class Header extends Component {
     this.toggleClickMovie = this.toggleClickMovie.bind(this);
     this.toggleClickTv = this.toggleClickTv.bind(this);
   }
-  toggleClickMovie(e){
-    e.preventDefault();
+  toggleClickMovie(){
     this.setState({
         showTvSubMenu: false,
         showActiveTv: false,
@@ -26,8 +25,7 @@ export default class Header extends Component {
         showActiveMovie: !prevState.showActiveMovie,
     }));
   }
-  toggleClickTv(e){
-    e.preventDefault();
+  toggleClickTv(){
     this.setState({
         showMovieSubMenu: false,
         showActiveMovie: false,
@@ -57,12 +55,12 @@ export default class Header extends Component {
         <nav className="site-navigation">
           <ul>
               <li>
-                <Link style={showActiveMovie} to="#" onClick={this.toggleClickMovie}>
+                <Link style={showActiveMovie} onClick={this.toggleClickMovie}>
                   Film
                 </Link>
               </li>
               <li>
-                <Link style={showActiveTv} to="#" onClick={this.toggleClickTv}>
+                <Link style={showActiveTv} onClick={this.toggleClickTv}>
                   TV
                 </Link>
               </li>
