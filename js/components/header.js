@@ -55,12 +55,12 @@ export default class Header extends Component {
         <nav className="site-navigation">
           <ul>
               <li>
-                <Link style={showActiveMovie} to="#" onClick={this.toggleClickMovie}>
+                <Link style={showActiveMovie} onClick={this.toggleClickMovie}>
                   Film
                 </Link>
               </li>
               <li>
-                <Link style={showActiveTv} to="#" onClick={this.toggleClickTv}>
+                <Link style={showActiveTv} onClick={this.toggleClickTv}>
                   TV
                 </Link>
               </li>
