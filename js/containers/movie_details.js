@@ -1,5 +1,5 @@
 // React
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 
 // Redux
 import { connect } from "react-redux";
@@ -19,11 +19,12 @@ import MovieOverviewToprated from '../containers/movie_overview_toprated.js'
 import {Router, Route, Link, hashHistory } from 'react-router';
 
 
-class MovieDetails extends Component {
+export class MovieDetails extends Component {
 	
+
 	componentWillMount() {
 		this.props.fetchMovieDetails(this.props.params.id);
-
+		console.log(this.props.params)
 	}
 
 	renderMovieDetails(){
