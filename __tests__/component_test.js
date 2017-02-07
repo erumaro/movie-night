@@ -19,7 +19,8 @@ import sinon from 'sinon';
 import reducers from '../js/reducers';
 
 describe('Components', function() {
-	describe('Searchbar', function() {
+	
+  describe('Searchbar', function() {
 
     	it('should render correctly', function() {
     		const tree = renderer.create(<SearchBar movies={fromJS({})} />).toJSON();
@@ -94,7 +95,6 @@ describe('Components', function() {
       		expect(tree).toMatchSnapshot();
     	});
     });
-
 
 });
 
