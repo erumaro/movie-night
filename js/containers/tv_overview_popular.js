@@ -18,10 +18,12 @@ import {Router, Route, Link, hashHistory } from 'react-router';
 // Other
 //import moment from "moment"
 
-class TvOverviewPopular extends Component {
+export class TvOverviewPopular extends Component {
 	
 	componentWillMount() {
-		this.props.fetchPopularTV();
+		if(this.props.fetchPopularTV) {
+			this.props.fetchPopularTV();
+		}
 	}
 
 	renderTv(tvList){

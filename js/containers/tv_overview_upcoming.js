@@ -17,10 +17,12 @@ import {Router, Route, Link, hashHistory } from 'react-router';
 // Other
 //import moment from "moment"
 
-class TvOverviewUpcoming extends Component {
+export class TvOverviewUpcoming extends Component {
 	
 	componentWillMount() {
-		this.props.fetchUpcomingTV();
+		if(this.props.fetchUpcomingTV) {
+			this.props.fetchUpcomingTV();
+		}
 	}
 
 	renderTv(tvList){

@@ -55,14 +55,10 @@ export class MovieOverviewPlaying extends Component {
 	render(){
 		
 		return (
-			
-        
-     
 			<div>
-			
+			<SearchBar />
 				<div className="fullPage centeringDiv">
 					<h1>Movies Now Playing</h1>
-					<SearchBar />
 					<div className="movieContainer">
 						{this.props.movies.map(this.renderMovies)}
 					</div>
