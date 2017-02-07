@@ -14,11 +14,7 @@ import {Router, Route, Link, hashHistory } from 'react-router';
 
 // let category = this.props.params.menuCategory
 
-class SearchBar extends Component {
-
-	/*componentDidMount() {
-		let initialHeading = document.getElementsByTagName("h1")[0].innerHTML;
-	}*/
+export class SearchBar extends Component {
 
 	onInputChange(term) {
 		
@@ -41,6 +37,7 @@ class SearchBar extends Component {
 					type="text" 
 					placeholder="Search Movies"
 					onChange={e => this.onInputChange(e.target.value)} 
+					
 					/>
 				
 			</div>
