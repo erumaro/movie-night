@@ -20,20 +20,19 @@ import axios from 'axios';
 import * as types from "../js/constants/ActionTypes.js";
 import ReactTestUtils from 'react-addons-test-utils';
 import { createStore } from 'redux' 
-import thunk from 'redux-thunk';
 import { stub } from 'sinon';
 import sinon from 'sinon';
 import reducers from '../js/reducers';
 
-describe('components', function() {
-	describe('<SearchBar />', function() {
+describe('Components', function() {
+	describe('Searchbar', function() {
 
-    	it('renders correctly', function() {
+    	it('should render correctly', function() {
     		const tree = renderer.create(<SearchBar movies={fromJS({})} />).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
 
-    	it('calls onchange event and calls fetchSearchResults', () => {
+    	it('should call onchange event and call fetchSearchResults', () => {
     		 const props = {
 		       fetchSearchResults: (term) => { return term}
 		    };
@@ -48,58 +47,59 @@ describe('components', function() {
        	});
     });
 
-    describe('<MovieDetails />', function() {
-    	
-    	it('renders correctly', function() {
-    		
-    		
-    		const tree = renderer.create(<Provider store={createStore(reducers)}>
-    										<MovieDetails movieDetails={fromJS({})}/>
-    									</Provider>).toJSON();
+    describe('Movie Details', function() {
+    	it('should render correctly', function() {
+        const tree = renderer.create(
+          <Provider store={createStore(reducers)}>
+    			 <MovieDetails movieDetails={fromJS({})}/>
+    			</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
     });
-    describe('<MovieOverviewPlaying />', function() {
-    	
-    	it('renders correctly', function() {
-    		
-    		
-    		const tree = renderer.create(<Provider store={createStore(reducers)}>
-    										<MovieOverviewPlaying movies={fromJS({})}/>
-    									</Provider>).toJSON();
+
+
+    describe('Movies Playing', function() {
+    	it('should render correctly', function() {
+    		const tree = renderer.create(
+          <Provider store={createStore(reducers)}>
+    			 <MovieOverviewPlaying movies={fromJS({})}/>
+    			</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
     });
-    describe('<MovieOverviewPopular />', function() {
-    	
-    	it('renders correctly', function() {
-    		
-    		
-    		const tree = renderer.create(<Provider store={createStore(reducers)}>
-    										<MovieOverviewPopular movies={fromJS({})}/>
-    									</Provider>).toJSON();
+
+
+    describe('Movies Popular', function() {
+    	it('should render correctly', function() {
+    		const tree = renderer.create(
+          <Provider store={createStore(reducers)}>
+    			 <MovieOverviewPopular movies={fromJS({})}/>
+    			</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
     });
-    describe('<MovieOverviewToprated />', function() {
-    	
-    	it('renders correctly', function() {
-    		 		
-    		const tree = renderer.create(<Provider store={createStore(reducers)}>
-    										<MovieOverviewToprated movies={fromJS({})}/>
-    									</Provider>).toJSON();
+
+
+    describe('Movies Toprated', function() {
+    	it('should render correctly', function() {
+    		const tree = renderer.create(
+          <Provider store={createStore(reducers)}>
+    			 <MovieOverviewToprated movies={fromJS({})}/>
+    			</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
     });
-    describe('<MovieOverviewUpcoming />', function() {
-    	
-    	it('renders correctly', function() {
-    		 		
-    		const tree = renderer.create(<Provider store={createStore(reducers)}>
-    										<MovieOverviewUpcoming movies={fromJS({})}/>
-    									</Provider>).toJSON();
+
+
+    describe('Movies Upcoming', function() {
+    	it('should render correctly', function() {
+    		const tree = renderer.create(
+          <Provider store={createStore(reducers)}>
+    			 <MovieOverviewUpcoming movies={fromJS({})}/>
+    			</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
+
     });
 
 

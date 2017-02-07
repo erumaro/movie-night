@@ -1,4 +1,14 @@
-exports[`components <MovieDetails /> renders correctly 1`] = `
+exports[`Components <SearchBarTv /> renders correctly 1`] = `
+<div
+  id="search-bar-wrapper">
+  <input
+    onChange={[Function]}
+    placeholder="Search Tv"
+    type="text" />
+</div>
+`;
+
+exports[`Components <TvDetails /> renders correctly 1`] = `
 <div
   className="fullPage">
   <div
@@ -6,7 +16,95 @@ exports[`components <MovieDetails /> renders correctly 1`] = `
 </div>
 `;
 
-exports[`components <MovieOverviewPlaying /> renders correctly 1`] = `
+exports[`Components <TvOverviewPlaying /> renders correctly 1`] = `
+<div>
+  <div
+    id="search-bar-wrapper">
+    <input
+      onChange={[Function]}
+      placeholder="Search Tv"
+      type="text" />
+  </div>
+  <div
+    className="fullPage centeringDiv">
+    <h1>
+      TV series Airing today
+    </h1>
+    <div
+      className="movieContainer" />
+  </div>
+</div>
+`;
+
+exports[`Components <TvOverviewPopular /> renders correctly 1`] = `
+<div>
+  <div
+    id="search-bar-wrapper">
+    <input
+      onChange={[Function]}
+      placeholder="Search Tv"
+      type="text" />
+  </div>
+  <div
+    className="fullPage centeringDiv">
+    <h1>
+      Popular TV series
+    </h1>
+    <div
+      className="movieContainer" />
+  </div>
+</div>
+`;
+
+exports[`Components <TvOverviewToprated /> renders correctly 1`] = `
+<div>
+  <div
+    id="search-bar-wrapper">
+    <input
+      onChange={[Function]}
+      placeholder="Search Tv"
+      type="text" />
+  </div>
+  <div
+    className="fullPage centeringDiv">
+    <h1>
+      Top Rated TV series
+    </h1>
+    <div
+      className="movieContainer" />
+  </div>
+</div>
+`;
+
+exports[`Components <TvOverviewUpcoming /> renders correctly 1`] = `
+<div>
+  <div
+    id="search-bar-wrapper">
+    <input
+      onChange={[Function]}
+      placeholder="Search Tv"
+      type="text" />
+  </div>
+  <div
+    className="fullPage centeringDiv">
+    <h1>
+      Upcoming TV series
+    </h1>
+    <div
+      className="movieContainer" />
+  </div>
+</div>
+`;
+
+exports[`Components Movie Details should render correctly 1`] = `
+<div
+  className="fullPage">
+  <div
+    className="movieContainer" />
+</div>
+`;
+
+exports[`Components Movies Playing should render correctly 1`] = `
 <div>
   <div
     className="fullPage centeringDiv">
@@ -26,7 +124,7 @@ exports[`components <MovieOverviewPlaying /> renders correctly 1`] = `
 </div>
 `;
 
-exports[`components <MovieOverviewPopular /> renders correctly 1`] = `
+exports[`Components Movies Popular should render correctly 1`] = `
 <div>
   <div
     id="search-bar-wrapper">
@@ -46,7 +144,7 @@ exports[`components <MovieOverviewPopular /> renders correctly 1`] = `
 </div>
 `;
 
-exports[`components <MovieOverviewToprated /> renders correctly 1`] = `
+exports[`Components Movies Toprated should render correctly 1`] = `
 <div>
   <div
     id="search-bar-wrapper">
@@ -66,7 +164,7 @@ exports[`components <MovieOverviewToprated /> renders correctly 1`] = `
 </div>
 `;
 
-exports[`components <MovieOverviewUpcoming /> renders correctly 1`] = `
+exports[`Components Movies Upcoming should render correctly 1`] = `
 <div>
   <div
     id="search-bar-wrapper">
@@ -86,7 +184,7 @@ exports[`components <MovieOverviewUpcoming /> renders correctly 1`] = `
 </div>
 `;
 
-exports[`components <SearchBar /> renders correctly 1`] = `
+exports[`Components Searchbar should render correctly 1`] = `
 <div
   id="search-bar-wrapper">
   <input
