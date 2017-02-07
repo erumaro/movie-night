@@ -99,6 +99,7 @@ describe('components', function() {
     	
     	
     });
+>>>>>>> 1db3fc9924e8be9aece340539fa78737086f2bb5
 });
 
     

@@ -81,6 +81,7 @@ export class MovieDetails extends Component {
 						<p className="facts">Production Companies: {productionCompanies}</p>
 						<p className="facts">Vote Avg: {this.props.movieDetails[0].vote_average}</p>
 						<p className="facts">Vote Count: {this.props.movieDetails[0].vote_count}</p>
+						<Link href="http://www.facebook.com">Facebook</Link>
 					</section>
 				</div>	
 			</div>
