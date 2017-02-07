@@ -30,5 +30,33 @@ describe('Header', () => {
             expect(wrapper.state().showActiveMovie).toBe(true);
             expect(wrapper.state().showActiveTv).toBe(false);
         });
+        
+        it('toggleClickMovie()', () => {
+            const wrapper = shallow(<Header />);
+            wrapper.instance().searchDish = jest.fn();
+            wrapper.update();
+            wrapper.instance().toggleClickMovie(
+            wrapper.setState({
+                showMovieSubMenu: true,
+                showActiveMovie: true,
+                showTvSubMenu: false,
+                showActiveTv: false
+            })
+            );
+        });
+        
+        it('toggleClickTv()', () => {
+            const wrapper = shallow(<Header />);
+            wrapper.instance().searchDish = jest.fn();
+            wrapper.update();
+            wrapper.instance().toggleClickTv(
+            wrapper.setState({
+                showMovieSubMenu: false,
+                showActiveMovie: false,
+                showTvSubMenu: true,
+                showActiveTv: true
+            })
+            );
+        })
     })
 })
