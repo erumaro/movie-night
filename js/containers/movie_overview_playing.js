@@ -17,13 +17,11 @@ import {Router, Route, Link, hashHistory } from 'react-router';
 
 
 export class MovieOverviewPlaying extends Component {
-
+	
 	componentWillMount() {
-	if(this.props.fetchNowPlayingMovies) {
+		if(this.props.fetchNowPlayingMovies) {
 			this.props.fetchNowPlayingMovies();
 		}
-		
-		
 	}
 	
 	renderMovies(movieList){

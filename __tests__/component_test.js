@@ -49,9 +49,12 @@ describe('Components', function() {
 
     describe('Movie Details', function() {
     	it('should render correctly', function() {
+    		const props = {
+    			fetchNowPlayingMovies: () => {}
+    		}
         const tree = renderer.create(
           <Provider store={createStore(reducers)}>
-    			 <MovieDetails movieDetails={fromJS({})}/>
+    			 <MovieDetails movieDetails={fromJS({})} {...props}/>
     			</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
@@ -59,13 +62,25 @@ describe('Components', function() {
 
 
     describe('Movies Playing', function() {
+    	it('checks if componentWillMount has been called', () => {
+		    spyOn(MovieOverviewPlaying.prototype, 'componentWillMount').and.callThrough();
+
+		    const wrapper = mount(<Provider store={createStore(reducers)}>
+    			 					<MovieOverviewPlaying movies={fromJS({})}/>
+    							  </Provider>);
+
+		    expect(wrapper).toBeDefined();
+		    expect(MovieOverviewPlaying.prototype.componentWillMount).toHaveBeenCalledTimes(1);
+		});
+    	
     	it('should render correctly', function() {
+    		
     		const tree = renderer.create(
           <Provider store={createStore(reducers)}>
     			 <MovieOverviewPlaying movies={fromJS({})}/>
     			</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
-    	});
+      	});
     });
 
 
