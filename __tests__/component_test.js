@@ -1,8 +1,19 @@
+// React
 import React from 'react';
 import renderer from 'react-test-renderer';
+import ReactTestUtils from 'react-addons-test-utils';
+
+// Immutable
 import { fromJS } from 'immutable';
+
+// Ensyme
 import { shallow, render, mount } from 'enzyme';
+
+//Redux
 import { Provider } from 'react-redux';
+import { createStore } from 'redux' 
+
+// Components
 import { MovieDetails } from '../js/containers/movie_details';
 import { MovieOverviewPlaying } from '../js/containers/movie_overview_playing';
 import { MovieOverviewPopular } from '../js/containers/movie_overview_popular';
@@ -15,19 +26,24 @@ import { TvOverviewPlaying } from '../js/containers/tv_overview_playing';
 import { TvOverviewPopular } from '../js/containers/tv_overview_popular';
 import { TvOverviewToprated } from '../js/containers/tv_overview_toprated';
 import { TvOverviewUpcoming } from '../js/containers/tv_overview_upcoming';
-import configureMockStore from 'redux-mock-store';
-import axios from 'axios';
-import * as types from "../js/constants/ActionTypes.js";
-import ReactTestUtils from 'react-addons-test-utils';
-import { createStore } from 'redux' 
-import { stub } from 'sinon';
-import sinon from 'sinon';
+
+// Reducers
 import reducers from '../js/reducers';
 
-describe('Components', function() {
-	
-  describe('Searchbar', function() {
 
+
+// import configureMockStore from 'redux-mock-store';
+// import axios from 'axios';
+// import * as types from "../js/constants/ActionTypes.js";
+// import { stub } from 'sinon';
+// import sinon from 'sinon';
+
+
+describe('Components', function() {
+
+  // MOVIE ----------------------------
+	
+  describe('Searchbar Movies', function() {
     	it('should render correctly', function() {
     		const tree = renderer.create(<SearchBar movies={fromJS({})} />).toJSON();
       		expect(tree).toMatchSnapshot();
@@ -48,7 +64,6 @@ describe('Components', function() {
        	});
     });
 
-    // MOVIE ----------------------------
 
     describe('Movie Details', function() {
     	it('should render correctly', function() {
@@ -105,16 +120,16 @@ describe('Components', function() {
 
     });
 
+
     // TV ----------------------------
 
-    describe('<SearchBarTv />', function() {
-
-    	it('renders correctly', function() {
+    describe('Searchbar Tv', function() {
+    	it('should render correctly', function() {
     		const tree = renderer.create(<SearchBarTv tv={fromJS({})} />).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
 
-    	it('calls onchange event and calls fetchSearchResultsTv', () => {
+    	it('should call onchange event and call fetchSearchResults', () => {
     		 const props = {
 		       fetchSearchResultsTv: (term) => { return term}
 		    };
@@ -129,58 +144,61 @@ describe('Components', function() {
        	});
     });
 
-    describe('<TvDetails />', function() {
-    	
-    	it('renders correctly', function() {
-    		    		
-    		const tree = renderer.create(<Provider store={createStore(reducers)}>
-    										<TvDetails tvDetails={fromJS({})}/>
-    									</Provider>).toJSON();
+
+    describe('Tv Details', function() {
+    	it('should render correctly', function() {
+    		const tree = renderer.create(
+          <Provider store={createStore(reducers)}>
+    			 <TvDetails tvDetails={fromJS({})}/>
+    			</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
     });
-    describe('<TvOverviewPlaying />', function() {
-    	
-    	it('renders correctly', function() {
-    		
-    		
-    		const tree = renderer.create(<Provider store={createStore(reducers)}>
-    										<TvOverviewPlaying tv={fromJS({})}/>
-    									</Provider>).toJSON();
+
+
+    describe('Tv Playing', function() {
+    	it('should render correctly', function() {
+    		const tree = renderer.create(
+          <Provider store={createStore(reducers)}>
+    			 <TvOverviewPlaying tv={fromJS({})}/>
+    			</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
     });
-    describe('<TvOverviewPopular />', function() {
-    	
-    	it('renders correctly', function() {
-    		
-    		
-    		const tree = renderer.create(<Provider store={createStore(reducers)}>
-    										<TvOverviewPopular tv={fromJS({})}/>
-    									</Provider>).toJSON();
+
+
+    describe('Tv Popular', function() {
+    	it('should render correctly', function() {
+    		const tree = renderer.create(
+          <Provider store={createStore(reducers)}>
+    			 <TvOverviewPopular tv={fromJS({})}/>
+    			</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
     });
-    describe('<TvOverviewToprated />', function() {
-    	
-    	it('renders correctly', function() {
-    		 		
-    		const tree = renderer.create(<Provider store={createStore(reducers)}>
-    										<TvOverviewToprated tv={fromJS({})}/>
-    									</Provider>).toJSON();
+
+
+    describe('Tv Toprated', function() {
+     	it('should render correctly', function() {
+    		const tree = renderer.create(
+          <Provider store={createStore(reducers)}>
+					 <TvOverviewToprated tv={fromJS({})}/>
+    			</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
     });
-    describe('<TvOverviewUpcoming />', function() {
-    	
-    	it('renders correctly', function() {
-    		 		
-    		const tree = renderer.create(<Provider store={createStore(reducers)}>
-    										<TvOverviewUpcoming tv={fromJS({})}/>
-    									</Provider>).toJSON();
+
+
+    describe('Tv Upcoming', function() {
+    	it('should render correctly', function() {
+    		const tree = renderer.create(
+          <Provider store={createStore(reducers)}>
+    			 <TvOverviewUpcoming tv={fromJS({})}/>
+    			</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
     });
+
 });
 
     
