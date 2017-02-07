@@ -1,4 +1,4 @@
-movieDetails : [{ 
+movieDetails = [{ 
 	  "adult": false,
 	  "backdrop_path": "/rGQ5S7T4u1VHRx9yZ11ff8sz2TT.jpg",
 	  "belongs_to_collection": {
@@ -57,5 +57,5 @@ movieDetails : [{
 	  "video": false,
 	  "vote_average": 7.5,
 	  "vote_count": 291
-	 }]
-	}
+	 }];
+	
