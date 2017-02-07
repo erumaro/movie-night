@@ -64,7 +64,7 @@ export class MovieDetails extends Component {
 			return(
 			<div id="detail-wrapper">
 				<div id="detail-container">
-					{/*<Link to={"/"}><img src="../img/arrow_back.png" /></Link>*/}
+					
 					<figure>
 						<img src={"https://image.tmdb.org/t/p/w500/" + this.props.movieDetails[0].poster_path}  alt="poster"/>
 					</figure>
@@ -93,9 +93,6 @@ export class MovieDetails extends Component {
 	}
 
 	render(){
-
-		
-	
 		return (
 			<div className="fullPage">
 				<div className="movieContainer">

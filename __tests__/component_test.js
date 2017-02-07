@@ -49,30 +49,25 @@ describe('Components', function() {
 
     describe('Movie Details', function() {
     	it('should render correctly', function() {
-    		const props = {
-    			fetchNowPlayingMovies: () => {}
-    		}
-        const tree = renderer.create(
+    	const tree = renderer.create(
           <Provider store={createStore(reducers)}>
-    			 <MovieDetails movieDetails={fromJS({})} {...props}/>
+    			 <MovieDetails movieDetails={fromJS({})} />
     			</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
+    	it('checks if renderMovieDetails has been called', () => {
+		    spyOn(MovieDetails.prototype, 'renderMovieDetails');
+
+		    const wrapper = mount(<MovieDetails movieDetails={fromJS({})} />);
+
+		    expect(wrapper).toBeDefined();
+		    expect(MovieDetails.prototype.renderMovieDetails).toHaveBeenCalledTimes(1);
+		});
+
     });
 
 
     describe('Movies Playing', function() {
-    	it('checks if componentWillMount has been called', () => {
-		    spyOn(MovieOverviewPlaying.prototype, 'componentWillMount').and.callThrough();
-
-		    const wrapper = mount(<Provider store={createStore(reducers)}>
-    			 					<MovieOverviewPlaying movies={fromJS({})}/>
-    							  </Provider>);
-
-		    expect(wrapper).toBeDefined();
-		    expect(MovieOverviewPlaying.prototype.componentWillMount).toHaveBeenCalledTimes(1);
-		});
-    	
     	it('should render correctly', function() {
     		
     		const tree = renderer.create(
@@ -81,6 +76,17 @@ describe('Components', function() {
     			</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
       	});
+      	it('checks if renderMovies has been called', () => {
+		    spyOn(MovieOverviewPlaying.prototype, 'renderMovies');
+
+		    const wrapper = mount(
+		    			<Provider store={createStore(reducers)}>
+		    			<MovieOverviewPlaying movies={fromJS({})} />
+		    			</Provider>);
+
+		    expect(wrapper).toBeDefined();
+		    expect(MovieOverviewPlaying.prototype.renderMovies).toHaveBeenCalled;
+		});
     });
 
 
@@ -92,6 +98,17 @@ describe('Components', function() {
     			</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
+    	it('checks if renderMovies has been called', () => {
+		    spyOn(MovieOverviewPopular.prototype, 'renderMovies');
+
+		    const wrapper = mount(
+		    			<Provider store={createStore(reducers)}>
+		    			<MovieOverviewPopular movies={fromJS({})} />
+		    			</Provider>);
+
+		    expect(wrapper).toBeDefined();
+		    expect(MovieOverviewPopular.prototype.renderMovies).toHaveBeenCalled;
+		});
     });
 
 
@@ -103,6 +120,17 @@ describe('Components', function() {
     			</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
+    	it('checks if renderMovies has been called', () => {
+		    spyOn(MovieOverviewToprated.prototype, 'renderMovies');
+
+		    const wrapper = mount(
+		    			<Provider store={createStore(reducers)}>
+		    			<MovieOverviewToprated movies={fromJS({})} />
+		    			</Provider>);
+
+		    expect(wrapper).toBeDefined();
+		    expect(MovieOverviewToprated.prototype.renderMovies).toHaveBeenCalled;
+		});
     });
 
 
@@ -114,6 +142,17 @@ describe('Components', function() {
     			</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
+    	it('checks if renderMovies has been called', () => {
+		    spyOn(MovieOverviewUpcoming.prototype, 'renderMovies');
+
+		    const wrapper = mount(
+		    			<Provider store={createStore(reducers)}>
+		    			<MovieOverviewUpcoming movies={fromJS({})} />
+		    			</Provider>);
+
+		    expect(wrapper).toBeDefined();
+		    expect(MovieOverviewUpcoming.prototype.renderMovies).toHaveBeenCalled;
+		});
 
     });
 
@@ -141,6 +180,14 @@ describe('Components', function() {
     });
 
     describe('<TvDetails />', function() {
+    	it('checks if renderTvDetails has been called', () => {
+		    spyOn(TvDetails.prototype, 'renderTvDetails');
+
+		    const wrapper = mount(<TvDetails tvDetails={fromJS({})} />);
+
+		    expect(wrapper).toBeDefined();
+		    expect(TvDetails.prototype.renderTvDetails).toHaveBeenCalledTimes(1);
+		});
     	
     	it('renders correctly', function() {
     		    		
@@ -160,6 +207,17 @@ describe('Components', function() {
     									</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
+    	it('checks if renderTv has been called', () => {
+		    spyOn(TvOverviewPlaying.prototype, 'renderTv');
+
+		    const wrapper = mount(
+		    			<Provider store={createStore(reducers)}>
+		    			<TvOverviewPlaying tv={fromJS({})} />
+		    			</Provider>);
+
+		    expect(wrapper).toBeDefined();
+		    expect(TvOverviewPlaying.prototype.renderTv).toHaveBeenCalled;
+		});
     });
     describe('<TvOverviewPopular />', function() {
     	
@@ -171,6 +229,17 @@ describe('Components', function() {
     									</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
+    	it('checks if renderTv has been called', () => {
+		    spyOn(TvOverviewPopular.prototype, 'renderTv');
+
+		    const wrapper = mount(
+		    			<Provider store={createStore(reducers)}>
+		    			<TvOverviewPopular tv={fromJS({})} />
+		    			</Provider>);
+
+		    expect(wrapper).toBeDefined();
+		    expect(TvOverviewPopular.prototype.renderTv).toHaveBeenCalled;
+		});
     });
     describe('<TvOverviewToprated />', function() {
     	
@@ -181,6 +250,17 @@ describe('Components', function() {
     									</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
+    	it('checks if renderTv has been called', () => {
+		    spyOn(TvOverviewToprated.prototype, 'renderTv');
+
+		    const wrapper = mount(
+		    			<Provider store={createStore(reducers)}>
+		    			<TvOverviewToprated tv={fromJS({})} />
+		    			</Provider>);
+
+		    expect(wrapper).toBeDefined();
+		    expect(TvOverviewToprated.prototype.renderTv).toHaveBeenCalled;
+		});
     });
     describe('<TvOverviewUpcoming />', function() {
     	
@@ -191,6 +271,17 @@ describe('Components', function() {
     									</Provider>).toJSON();
       		expect(tree).toMatchSnapshot();
     	});
+    	it('checks if renderTv has been called', () => {
+		    spyOn(TvOverviewUpcoming.prototype, 'renderTv');
+
+		    const wrapper = mount(
+		    			<Provider store={createStore(reducers)}>
+		    			<TvOverviewUpcoming tv={fromJS({})} />
+		    			</Provider>);
+
+		    expect(wrapper).toBeDefined();
+		    expect(TvOverviewUpcoming.prototype.renderTv).toHaveBeenCalled;
+		});
     });
 });
 
