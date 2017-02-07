@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/erumaro/movie-night.svg?branch=master)](https://travis-ci.org/Erumaro/movie-night)
+[![Build Status](https://travis-ci.org/erumaro/movie-night.svg?branch=master)](https://travis-ci.org/erumaro/movie-night)
 
 movie-night
 ===
