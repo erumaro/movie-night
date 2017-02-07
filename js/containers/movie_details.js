@@ -23,9 +23,9 @@ export class MovieDetails extends Component {
 	
 
 	componentWillMount() {
-		this.props.fetchMovieDetails(this.props.params.id);
-		console.log('här är den ',this.props)
-
+		if(this.props.fetchMovieDetails) {
+			this.props.fetchMovieDetails(this.props.params.id);
+		}
 	}
 
 	renderMovieDetails(){
@@ -93,9 +93,7 @@ export class MovieDetails extends Component {
 
 	render(){
 
-		 /*if(this.props.movieDetails[0]){
-			console.log(this.props.movieDetails[0].title)
-			} */
+		
 	
 		return (
 			<div className="fullPage">

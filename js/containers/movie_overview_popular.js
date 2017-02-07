@@ -15,10 +15,13 @@ import SearchBar from "./search_bar"
 import {Router, Route, Link, hashHistory } from 'react-router';
 
 
-class MovieOverviewPopular extends Component {
+export class MovieOverviewPopular extends Component {
 
 	componentWillMount() {
-		this.props.fetchPopularMovies();
+		if(this.props.fetchPopularMovies) {
+			this.props.fetchPopularMovies();
+		}
+		
 	}
 	
 

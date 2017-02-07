@@ -16,10 +16,13 @@ import SearchBar from "./search_bar"
 import {Router, Route, Link, hashHistory } from 'react-router';
 
 
-class MovieOverviewUpcoming extends Component {
+export class MovieOverviewUpcoming extends Component {
 
 	componentWillMount() {
-		this.props.fetchUpcomingMovies();
+		if (this.props.fetchUpcomingMovies) {
+			this.props.fetchUpcomingMovies();
+		}
+		
 	}
 	
 

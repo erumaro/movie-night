@@ -1,3 +1,11 @@
+exports[`components <MovieDetails /> renders correctly 1`] = `
+<div
+  className="fullPage">
+  <div
+    className="movieContainer" />
+</div>
+`;
+
 exports[`components <MovieOverviewPlaying /> renders correctly 1`] = `
 <div>
   <div
@@ -6,44 +14,74 @@ exports[`components <MovieOverviewPlaying /> renders correctly 1`] = `
       Movies Now Playing
     </h1>
     <div
-      className="movieContainer">
-      <article
-        className="movieThumb">
-        <a
-          onClick={[Function]}
-          style={Object {}}>
-          <img
-            src="https://image.tmdb.org/t/p/w500_and_h281_bestv2/undefined" />
-        </a>
-        <section
-          className="info">
-          <section
-            className="topInfo">
-            <a
-              onClick={[Function]}
-              style={Object {}}>
-              <h2 />
-            </a>
-            <h3>
-              2011-10-10
-            </h3>
-          </section>
-          <section
-            className="bottomInfo">
-            <h3>
-              <font
-                color="#cc0000">
-                ❤
-              </font>
-               
-            </h3>
-            <h3>
-              Average vote: 
-            </h3>
-          </section>
-        </section>
-      </article>
+      id="search-bar-wrapper">
+      <input
+        onChange={[Function]}
+        placeholder="Search Movies"
+        type="text" />
     </div>
+    <div
+      className="movieContainer" />
+  </div>
+</div>
+`;
+
+exports[`components <MovieOverviewPopular /> renders correctly 1`] = `
+<div>
+  <div
+    id="search-bar-wrapper">
+    <input
+      onChange={[Function]}
+      placeholder="Search Movies"
+      type="text" />
+  </div>
+  <div
+    className="fullPage centeringDiv">
+    <h1>
+      Popular Movies
+    </h1>
+    <div
+      className="movieContainer" />
+  </div>
+</div>
+`;
+
+exports[`components <MovieOverviewToprated /> renders correctly 1`] = `
+<div>
+  <div
+    id="search-bar-wrapper">
+    <input
+      onChange={[Function]}
+      placeholder="Search Movies"
+      type="text" />
+  </div>
+  <div
+    className="fullPage centeringDiv">
+    <h1>
+      Top Rated Movies
+    </h1>
+    <div
+      className="movieContainer" />
+  </div>
+</div>
+`;
+
+exports[`components <MovieOverviewUpcoming /> renders correctly 1`] = `
+<div>
+  <div
+    id="search-bar-wrapper">
+    <input
+      onChange={[Function]}
+      placeholder="Search Movies"
+      type="text" />
+  </div>
+  <div
+    className="fullPage centeringDiv">
+    <h1>
+      Upcoming Movies this month
+    </h1>
+    <div
+      className="movieContainer" />
   </div>
 </div>
 `;

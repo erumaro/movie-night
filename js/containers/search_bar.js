@@ -37,9 +37,7 @@ export class SearchBar extends Component {
 					type="text" 
 					placeholder="Search Movies"
 					onChange={e => this.onInputChange(e.target.value)} 
-					
 					/>
-				
 			</div>
 		)
 	}
