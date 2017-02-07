@@ -14,12 +14,9 @@ import {Router, Route, Link, hashHistory } from 'react-router';
 
 // let category = this.props.params.menuCategory
 
-class SearchBarTv extends Component {
+export class SearchBarTv extends Component {
 
-	/*componentDidMount() {
-		let initialHeading = document.getElementsByTagName("h1")[0].innerHTML;
-	}*/
-
+	
 	onInputChange(term) {
 		
 		let heading = document.getElementsByTagName("h1")[0];

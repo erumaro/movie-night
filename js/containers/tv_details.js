@@ -19,11 +19,12 @@ import TvOverviewToprated from '../containers/tv_overview_toprated.js'
 import {Router, Route, Link, hashHistory } from 'react-router';
 
 
-class TvDetails extends Component {
+export class TvDetails extends Component {
 	
 	componentWillMount() {
-		this.props.fetchTvDetails(this.props.params.id);
-
+		if(this.props.fetchTvDetails) {
+			this.props.fetchTvDetails(this.props.params.id);
+		}
 	}
 
 	renderTvDetails(){
