@@ -31,14 +31,6 @@ import { TvOverviewUpcoming } from '../js/containers/tv_overview_upcoming';
 import reducers from '../js/reducers';
 
 
-
-// import configureMockStore from 'redux-mock-store';
-// import axios from 'axios';
-// import * as types from "../js/constants/ActionTypes.js";
-// import { stub } from 'sinon';
-// import sinon from 'sinon';
-
-
 describe('Components', function() {
 
   // MOVIE ----------------------------
