@@ -190,31 +190,12 @@ describe('Components', function() {
        	});
     });
 
-<<<<<<< HEAD
-
     describe('Tv Details', function() {
     	it('should render correctly', function() {
     		const tree = renderer.create(
           <Provider store={createStore(reducers)}>
     			 <TvDetails tvDetails={fromJS({})}/>
     			</Provider>).toJSON();
-=======
-    describe('<TvDetails />', function() {
-    	it('checks if renderTvDetails has been called', () => {
-		    spyOn(TvDetails.prototype, 'renderTvDetails');
-
-		    const wrapper = mount(<TvDetails tvDetails={fromJS({})} />);
-
-		    expect(wrapper).toBeDefined();
-		    expect(TvDetails.prototype.renderTvDetails).toHaveBeenCalledTimes(1);
-		});
-    	
-    	it('renders correctly', function() {
-    		    		
-    		const tree = renderer.create(<Provider store={createStore(reducers)}>
-    										<TvDetails tvDetails={fromJS({})}/>
-    									</Provider>).toJSON();
->>>>>>> 9cfb81dfb350c6adb5d6b7074ecced8d276d8c54
       		expect(tree).toMatchSnapshot();
     	});
     });
